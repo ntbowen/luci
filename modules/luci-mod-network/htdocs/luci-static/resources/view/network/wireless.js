@@ -2318,7 +2318,7 @@ return view.extend({
 			uci.add('wireless', 'wifi-iface', section_id);
 			uci.set('wireless', section_id, 'device', radioDev.getName());
 			uci.set('wireless', section_id, 'mode', 'ap');
-			uci.set('wireless', section_id, 'ssid', 'ImmortalWrt');
+			uci.set('wireless', section_id, 'ssid', 'ZagWIFI');
 			uci.set('wireless', section_id, 'encryption', 'none');
 
 			this.addedSection = section_id;

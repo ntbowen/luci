@@ -378,6 +378,23 @@ function handlePage(ev)
 
 	cbi_update_table('#packages', currentDisplayRows.slice(offset, offset + 100),
 		placeholder);
+
+	setTimeout(function() {
+		var cells = document.querySelectorAll(".td.col-10");
+		for(var i=0; i<cells.length; i++) {
+			cells[i].style.whiteSpace = "normal";
+			cells[i].style.wordBreak = "break-word";
+			cells[i].style.minWidth = "200px";
+			cells[i].style.maxWidth = "50vw";
+		}
+		
+		var actionCells = document.querySelectorAll(".td.cbi-section-actions");
+		for(var i=0; i<actionCells.length; i++) {
+			actionCells[i].style.whiteSpace = "nowrap";
+			actionCells[i].style.width = "120px";
+			actionCells[i].style.minWidth = "120px";
+		}
+	}, 100);
 }
 
 function handleMode(ev)
@@ -1208,8 +1225,8 @@ return view.extend({
 								'value': 'lang',
 								'change': handleI18nFilter,
 								'checked': true
-							}),
-							' ',
+							}), ' ',
+							E('label', { 'for': 'i18ninstall-cb' }), ' ',
 							_('filtered', 'Display translation packages')
 						]),
 						' \u00a0 ',
@@ -1221,8 +1238,8 @@ return view.extend({
 								'name': 'filter_i18n',
 								'value': 'all',
 								'change': handleI18nFilter
-							}),
-							' ',
+							}), ' ',
+							E('label', { 'for': 'i18ninstall-cb' }), ' ',
 							_('all', 'Display translation packages')
 						]),
 						' \u00a0 ',
@@ -1234,8 +1251,8 @@ return view.extend({
 								'name': 'filter_i18n',
 								'value': 'none',
 								'change': handleI18nFilter
-							}),
-							' ',
+							}), ' ',
+							E('label', { 'for': 'i18ninstall-cb' }), ' ',
 							_('none', 'Display translation packages')
 						])
 					])

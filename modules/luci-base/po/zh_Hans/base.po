@@ -14652,3 +14652,102 @@ msgstr "温度"
 
 #~ msgid "IPv6 WAN Status"
 #~ msgstr "IPv6 WAN 状态"
+
+msgid "Modem"
+msgstr "移动通信"
+
+msgid "NAS"
+msgstr "网络存储"
+
+msgid "Docker"
+msgstr "容器"
+
+msgid "VPN"
+msgstr "虚拟专网"
+
+msgid "iStore"
+msgstr "应用商店"
+
+msgid "Control"
+msgstr "管控"
+
+msgid "PowerOff"
+msgstr "关机"
+
+msgid "Online User"
+msgstr "在线设备"
+
+msgid "IP Information"
+msgstr "IP 信息"
+
+msgid "Public IP"
+msgstr "公网 IP"
+
+msgid "Provider"
+msgstr "供应商"
+
+msgid "Orangization"
+msgstr "组织"
+
+msgid "ASN Number"
+msgstr "自治系统编号"
+
+msgid "City"
+msgstr "城市"
+
+msgid "Country"
+msgstr "国家/地区"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "Latitude"
+msgstr "纬度"
+
+msgid "Longitude"
+msgstr "经度"
+
+msgid "No temperature sensors available"
+msgstr "温度传感器不可用"
+
+msgid "Sensor"
+msgstr "传感器"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "acpitz"
+msgstr "环境"
+
+msgid "core"
+msgstr "核心"
+
+msgid "temp"
+msgstr "温度"
+
+msgid "coretemp"
+msgstr "核心温度"
+
+msgid "critical"
+msgstr "临界值"
+
+msgid "max"
+msgstr "最大值"
+
+msgid "passive"
+msgstr "被动值"
+
+msgid "CloudShark"
+msgstr "云鲨"
+
+msgid "Listening Port"
+msgstr "端口监听"
+
+msgid "vlmcsd"
+msgstr "微软激活"
+
+msgid "MSD"
+msgstr "组播代理"
+
+msgid "DAWN"
+msgstr "分布式无线"

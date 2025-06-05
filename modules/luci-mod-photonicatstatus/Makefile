@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=Photonicat Battery Status
-LUCI_DESCRIPTION:=Provides a battery charge indicator in LuCI. Currently only supports Photonicat.
+LUCI_DESCRIPTION:=Provides a battery charge and system clock indicator in LuCI. Currently only supports Photonicat.
 
 LUCI_DEPENDS:=+luci-base +libiwinfo-lua +rpcd-mod-iwinfo +pcat-manager
 

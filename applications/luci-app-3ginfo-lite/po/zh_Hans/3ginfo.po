@@ -1,0 +1,326 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "Information about 3G/4G/5G connection"
+msgstr "信号"
+
+msgid "More information about the 3ginfo on the %seko.one.pl forum%s."
+msgstr "本介面由ZagLu汉化，更多细节请登录%seko.one.pl 论坛%s。"
+
+msgid "Execution of various commands to check the availability of the modem and eliminate errors in the data collected by the scripts."
+msgstr "执行各种命令来检查调制解调器的可用性并消除脚本收集的数据中的错误。"
+
+msgid "Check availability of ttyX ports."
+msgstr "检查 ttyX 端口的可用性。"
+
+msgid "echeck data read by the 3ginfo scripts."
+msgstr "检查 3GINFO 脚本读取的数据。"
+
+msgid "eko.one.pl forum"
+msgstr "eko.one.pl 论坛"
+
+msgid "Details"
+msgstr "详情"
+
+msgid "USB debug information"
+msgstr "USB-Debug信息"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "General Information"
+msgstr "通用信息"
+
+msgid "Modem Information"
+msgstr "MODEM信息"
+
+msgid "Cell / Signal Information"
+msgstr "网络/信号信息"
+
+msgid "Technology"
+msgstr "通讯类型"
+
+msgid "Operator"
+msgstr "运营商"
+
+msgid "Signal strength"
+msgstr "信号强度"
+
+msgid "Connection statistics"
+msgstr "联网统计"
+
+msgid "Modem type"
+msgstr "MODEM型号"
+
+msgid "Additional information"
+msgstr "更多信息"
+
+msgid "Revision / Firmware"
+msgstr "修订/固件"
+
+msgid "IP adress / Communication Port"
+msgstr "IP地址/通讯端口"
+
+msgid "Chip Temperature"
+msgstr "芯片温度"
+
+msgid "Configuration 3ginfo-lite"
+msgstr "配置3ginfo-lite"
+
+msgid "Configuration panel for the 3ginfo-lite application."
+msgstr "3ginfo-lite配置面板。"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "IP adress / Port for communication with the modem"
+msgstr "IP地址/MODEM通通讯端口"
+
+msgid "Protocol"
+msgstr "协议"
+
+msgid ""
+"Select the appropriate settings. <br /> <br />Traditional "
+"modem. <br /> Select one of the available ttyUSBX "
+"ports.<br /> <br />HiLink modem. <br /> Enter the IP address "
+"192.168.X.X under which the modem is available."
+msgstr ""
+"选择合适的设置。 <br /> <br />传统的 "
+"MODEM： <br /> 选择可用的ttyUSBX "
+"端口<br /> <br />华为HiLink MODEM： <br /> 在可用的MODEM下"
+"输入IP地址 如 192.168.X.X"
+
+msgid "Very good"
+msgstr "非常好"
+
+msgid "Good"
+msgstr "良好"
+
+msgid "Weak"
+msgstr "弱"
+
+msgid "Very weak"
+msgstr "非常弱"
+
+msgid "Excellent"
+msgstr "棒极了"
+
+msgid "Good"
+msgstr "好"
+
+msgid "Mid cell"
+msgstr "中等信号"
+
+msgid "Cell edge"
+msgstr "信号弱"
+
+msgid "SIM status"
+msgstr "SIM状态"
+
+msgid "Not registered"
+msgstr "未注册"
+
+msgid "Registered"
+msgstr "已注册"
+
+msgid "Registered (roaming)"
+msgstr "已注册（漫游）"
+
+msgid "Searching.."
+msgstr "搜索中……"
+
+msgid "Registering denied"
+msgstr "拒绝注册"
+
+msgid "Waiting to read data from the modem..."
+msgstr "等待从MODEM中读取的数据……"
+
+msgid "Waiting for connection data..."
+msgstr "等待连接数据……"
+
+msgid "BTS Search"
+msgstr "基站搜索"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Search BTS using Cell ID"
+msgstr "搜索正在使用移动通信ID的基站"
+
+msgid "Hint: To set up a BTS search engine, all you have to do is select the dedicated website for your location."
+msgstr "提示：: 为确保基站搜索而构架一个搜索引擎，你所要做的就是选择一个服务于你的位置的网页"
+
+msgid "BTS search settings"
+msgstr "基站搜索设置"
+
+msgid "Website to search for BTS"
+msgstr "基站的网页搜索"
+
+msgid "Select a website for searching."
+msgstr "选择一个用于搜索的网页。"
+
+msgid "SIM Slot"
+msgstr "SIM卡槽"
+
+msgid "Problem with registering to the network, check the SIM card."
+msgstr "网络注册错误，请检查SIM卡。"
+
+msgid "SIM PIN required"
+msgstr "需要要SIM卡PIN码"
+
+msgid "SIM PUK required"
+msgstr "需要要SIM卡PUK码"
+
+msgid "SIM failure"
+msgstr "SIM卡失效"
+
+msgid "SIM busy"
+msgstr "SIM卡正忙"
+
+msgid "SIM wrong"
+msgstr "SIM卡错误"
+
+msgid "SIM PIN2 required"
+msgstr "需要要SIM卡PIN2码"
+
+msgid "SIM PUK2 required"
+msgstr "需要要SIM卡PUK2码"
+
+msgid ""
+"There is a problem reading data from the modem. <br /><br /><b>Please "
+"check:</b> <ul><li>1. Modem availability in the system.</li><li>2. The correct "
+"installation of the SIM card in the modem.</li><li> 3. Port for communication with the modem.</li><li><ul>"
+msgstr ""
+"读取MODEM数据错误。<br /><br /><b>请"
+"检查：</b> <ul><li>1.MODEM是否有效。</li><li>2.MODEM"
+"是否正确安装SIM卡。</li><li>3.MODEM的通讯端口。</li><li><ul>"
+
+msgid ""
+"There is a problem reading connection data. <br /><br /><b>Please "
+"check:</b> <ul><li>1. Connection of the modem to the internet, the correctness of the entered APN. Some modems need to force the APN on the modem using at commands "
+"to connect to internet.</li><li> 2. Check that the correct interface assigned to the modem is selected. The default name of the interface in the package is wan.</li><li><ul>"
+msgstr ""
+"读取连接数据错误。<br /><br /><b>请"
+"检查：</b> <ul><li>1.MODEM是否连接网络，APN是否正确。部分MODEM需要AT命令强制设置APN"
+"来连接网络。</li><li>2.检查指定MODEM的网络界面是否正确。默认的网络界面名称是WAN。</li><li><ul>"
+
+msgid "Defined modems"
+msgstr "自定义MODEM"
+
+msgid "Interface for selecting user defined modems."
+msgstr "本界面由ZagLu汉化。"
+
+msgid "Modem selection menu"
+msgstr "MODEM选择菜单"
+
+msgid "Customizing the appearance of the package"
+msgstr "自定义包的外观"
+
+msgid "Hint: The settings below allow you to customize the appearance of the progress bars."
+msgstr "提示：以下的设置允许你自定义进度条的外观。"
+
+msgid "The width of the progress bars"
+msgstr "进度条宽度"
+
+msgid "Select the width of the progress bars."
+msgstr "选择进度条的宽度。"
+
+msgid "Mobile Country Code & Mobile Network Code"
+msgstr "移动国家代码与移动网络代码"
+
+msgid "Identifier of the cell in the network"
+msgstr "移动通信ID"
+
+msgid "Tracking Area Code"
+msgstr "跟踪区域码"
+
+msgid "Location Area Code"
+msgstr "位置区码"
+
+msgid "Received Signal Strength Indicator"
+msgstr "接收信号强度"
+
+msgid "Reference Signal Receive Power"
+msgstr "参考信号接收功率"
+
+msgid "Signal to Interference plus Noise Ratio"
+msgstr "信号与干扰和噪声比"
+
+msgid "Reference Signal Received Quality"
+msgstr "参考信号接收质量"
+
+msgid "Primary band (PCC) | PCI & EARFCN"
+msgstr "主载波 | 物理小区标识与载波频点号"
+
+msgid "CA band (SCC1)"
+msgstr "辅助载波1"
+
+msgid "CA band (SCC2)"
+msgstr "辅助载波2"
+
+msgid "CA band (SCC3)"
+msgstr "辅助载波3"
+
+msgid "CA band (SCC4)"
+msgstr "辅助载波4"
+
+msgid "MCC MNC"
+msgstr "国家代码 网络代码"
+
+msgid "TAC"
+msgstr "跟踪区域码"
+
+msgid "LAC"
+msgstr "位置区码"
+
+msgid "CSQ"
+msgstr "信号强度"
+
+msgid "RSSI"
+msgstr "接收信号强度"
+
+msgid "RSRP"
+msgstr "参考信号接收功率"
+
+msgid "SINR"
+msgstr "信号与干扰和噪声比"
+
+msgid "RSRQ"
+msgstr "参考信号接收质量"
+
+msgid "IMSI"
+msgstr "国际移动用户识别码"
+
+msgid "ICCID"
+msgstr "集成电路卡识别码"
+
+msgid "IMEI"
+msgstr "国际移动设备识别码"
+
+msgid "Defined modems“
+msgstr "定义好的MODEM"
+
+msgid "Interface for selecting user defined modems.“
+msgstr "用于选择用户定义的MODEM的接口。"
+
+msgid "SIM Card Menu“
+msgstr "SIM卡菜单"
+
+msgid "Information read from the SIM card and device.“
+msgstr "从SIM卡和设备读取的信息。"
+
+msgid "Hint“
+msgstr "提示"
+
+msgid "CLICK ME TO SEE NEW MENU“
+msgstr "点击打开新菜单"
+
+msgid "CHN-UNICOM“
+msgstr "中国联通"
+
+msgid "CHN-TELECOM“
+msgstr "中国电信"
+
+msgid "CHN-MOBILE“
+msgstr "中国移动"
+

@@ -29,7 +29,7 @@
 
 .Dashboard .dashboard-bg {
 	border-radius: 16px;
-	background-color: var(--background-color-medium, #e0e0e0);
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 .Dashboard .title {
@@ -46,7 +46,7 @@
 
 .Dashboard .section-content > div {
 	width:100%;
-	padding:1.5em;
+	padding:1.5em 0.8em;
 }
 
 .Dashboard .section-content  .settings-info {
@@ -55,11 +55,17 @@
 
 .Dashboard .section-content .internet-status-info .settings-info {
 	display: flex;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
 }
 
 .Dashboard .section-content .internet-status-info .settings-info > div > p > i{
 	padding: 0 0 0 5px;
+}
+
+.Dashboard .section-content .internet-status-info .settings-info > div {
+	width: 100%;
 }
 
 .Dashboard .section-content > div:nth-child(2) {
@@ -89,11 +95,18 @@
 }
 
 .Dashboard .router-status-self .router-status-info .settings-info {
-	padding-left:27px;
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+	margin: 0;
 }
 
 .Dashboard .router-status-self .router-status-info .title h3 {
 	margin-top:-2px;
+}
+
+.Dashboard .router-status-self .router-status-info .title {
+	height: 97px;
 }
 
 .Dashboard .router-status-info svg {
@@ -103,6 +116,12 @@
 .Dashboard .internet-status-self .settings-info p:first-child span:first-child{
 	font-size: 15px;
 	font-weight: 500;
+	min-width: 100px;
+}
+
+/* 增加IPv4和IPv6网络之间的间距 */
+.Dashboard .section-content .internet-status-info .settings-info > div:nth-child(2) {
+	padding-top: 15px;
 }
 
 .Dashboard .internet-status-self .settings-info p:nth-child(2) span:first-child,
@@ -112,23 +131,34 @@
 }
 
 .Dashboard .settings-info p span:first-child {
-	width: 35%;
-	font-size: 12px;
+	font-size: 13px;
 	text-align: right;
+	align-self: flex-start;
+	padding-right: 10px;
 }
 
 .Dashboard .settings-info p span:nth-child(2){
 	display: inline-block;
 	word-break: break-all;
+	width: auto;
+	flex: 1;
+}
+
+.Dashboard .settings-info p {
+	display: flex;
+	align-items: flex-start;
+	padding: 0 5px;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .Dashboard .settings-info p span:nth-child(2).label {
-	padding: 1px 4px 1px 4px;
-	font-size: 9.75px;
+	padding: 2px 6px;
+	font-size: 13px;
 }
 
 .Dashboard .router-status-info .settings-info p span:nth-child(2){
-	max-width: 283px;
+	max-width: none;
 }
 
 .Dashboard .settings-info p span.ssid {
@@ -192,11 +222,6 @@
 	border-bottom: 1px solid var(--border-color-medium, rgba(0, 0, 0, 0.1));
 }
 
-.Dashboard .table {
-	width: auto;
-	text-align: left;
-}
-
 [data-darkmode="true"] {
 	/* invert black SVG line drawings in dark mode */
 	.Dashboard .svgmonotone {
@@ -238,8 +263,14 @@
 	}
 
 	.Dashboard .section-content .internet-status-info .settings-info > div:first-child {
-		margin-bottom: 10px;
+		margin-bottom: 30px;
 		border-bottom: 1px solid var(--border-color-medium, rgba(0, 0, 0, 0.1));
+		padding-bottom: 20px;
+	}
+	
+	/* 确保在移动设备上也有足够间距 */
+	.Dashboard .section-content .internet-status-info .settings-info > div:nth-child(2) {
+		padding-top: 15px;
 	}
 
 	.Dashboard .section-content .router-status-lan .devices-info .table-titles {
@@ -294,4 +325,1392 @@
 	.Dashboard .wifi-info hr:nth-child(4) {
 		margin-bottom: 0;
 	}
+}
+/* CASCADE dashboard layout enhancements - 2025-08-08 */
+body.node-admin-dashboard #maincontent .container{max-width:1600px;margin:0 auto;padding:0 16px;}
+#view .Dashboard .section-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:16px;}
+#view .Dashboard .dashboard-bg{background:rgba(33,45,60,.88);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.06);border-radius:10px;}
+.router-status-wifi .settings-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+.router-status-wifi .radio-info{width:auto !important;}
+.devices-list .table{table-layout:fixed;width:100%;}
+.devices-list .table th,.devices-list .table td{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.devices-list .table td span{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;}
+#view .Dashboard hr{opacity:.15;}
+#view .Dashboard .title img.middle{margin-right:8px;vertical-align:middle;}
+/* CASCADE v3 – 4K 取消收敛 + 等高 + 对齐统一 */
+
+/* 1) 取消 4K 收敛：容器全宽，保留左右内边距 */
+body.node-admin-dashboard #maincontent > .container{
+  max-width:none !important;
+  width:100% !important;
+  padding:0 24px !important;
+}
+
+/* 2) 栅格自适应：4K 可四列，窄屏自动降列；行内卡片等高 */
+#view .Dashboard .section-content{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(760px, 1fr));
+  gap:16px !important;
+  align-items:stretch !important;
+}
+#view .Dashboard .dashboard-bg{ height:100%; }
+
+/* 3) 全部卡片等高到互联网卡的高度区间（可按需微调） */
+#view .Dashboard .box-s1{ min-height:520px !important; }
+
+/* 4) 互联网卡 DNS 表与其它信息对齐一致：标签右对齐、值左对齐并省略溢出 */
+#view .internet-status-self .internet-status-info table.table{
+  table-layout:fixed; width:100%;
+  font-size:13px; line-height:1.5;
+}
+#view .internet-status-self .internet-status-info table.table td:first-child,
+#view .internet-status-self .internet-status-info table.table th:first-child{
+  width:120px; min-width:120px; max-width:120px;
+  text-align:right; padding-right:10px; white-space:nowrap;
+}
+#view .internet-status-self .internet-status-info table.table td:last-child{
+  text-align:left; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+
+/* 5) 字体/粗细/行距统一（覆盖早先的个别加粗） */
+#view .Dashboard .settings-info p{ line-height:1.5 !important; }
+#view .Dashboard .settings-info p span:first-child{
+  font-weight:500 !important; font-size:13px !important; text-align:right !important;
+}
+#view .Dashboard .settings-info p span:nth-child(2){
+  font-weight:400 !important; font-size:13px !important;
+}
+#view .Dashboard .label{
+  font-weight:500 !important; font-size:12px !important; line-height:1.4 !important;
+}
+#view .Dashboard .title h3{ font-weight:600 !important; font-size:16px !important; }
+
+/* 6) 细节：分隔线一致、标题行图标对齐更紧凑 */
+#view .Dashboard hr{ margin:8px 0 !important; opacity:.2 !important; }
+#view .Dashboard .title img.middle{ margin-right:8px; vertical-align:middle; }
+
+/* CASCADE v3.1 – 标签列固定宽度 + 等高 524 + 去除成功绿底 */
+
+/* 统一整体卡片高度到 524px */
+#view .Dashboard .box-s1{ min-height:524px !important; }
+
+/* 统一信息行：标签列固定宽度，值列省略号，并保持基线对齐 */
+#view .Dashboard .settings-info p{ line-height:1.5 !important; }
+#view .Dashboard .settings-info p span:first-child{
+  display:inline-block !important;
+  width:120px !important;
+  text-align:right !important;
+  padding-right:10px !important;
+  white-space:nowrap !important;
+}
+#view .Dashboard .settings-info p span:nth-child(2){
+  display:inline-block !important;
+  width:calc(100% - 120px) !important;
+  overflow:hidden !important; text-overflow:ellipsis !important; white-space:nowrap !important;
+  vertical-align:baseline !important;
+}
+#view .Dashboard .settings-info p > span{ vertical-align:baseline !important; }
+
+/* 去除“已连接/活跃”绿底徽标造成的基线下沉（仅限相关模块） */
+#view .internet-status-self .settings-info .label-success,
+#view .router-status-wifi .settings-info .label-success{
+  background:transparent !important;
+  color:inherit !important;
+  border:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  height:auto !important;
+  display:inline !important;
+  box-shadow:none !important;
+}
+
+/* CASCADE v3.2 – 全局成功徽标绿色文字 + 卡片宽度上限与居中布局 */
+
+/* 1) 将仪表盘所有成功徽标改为绿色文字，无背景与内边距 */
+#view .Dashboard .label-success,
+#view .Dashboard .badge-success{
+  background:transparent !important;
+  color:#28c76f !important; /* 绿色文字 */
+  border:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  height:auto !important;
+  display:inline !important;
+  box-shadow:none !important;
+}
+
+/* 2) 限制卡片最大宽度并居中，以免两列卡片过宽贴边/视觉溢出 */
+#view .Dashboard .section-content{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(760px, 900px)) !important;
+  justify-content:center !important; /* 多余空间均分到两侧，卡片居中 */
+  gap:16px !important;
+}
+
+/* 3) 防止卡片内部撑破：确保边框盒并允许收敛 */
+#view .Dashboard .box-s1{ box-sizing:border-box !important; max-width:900px !important; }
+
+/* CASCADE v3.3 – 成功徽标绿色文字、无线加密全显、纵向对齐与移动端优化 */
+
+/* 1) 强化：所有成功徽标绿色文字，覆盖值列 last-child 的颜色规则 */
+#view .Dashboard .settings-info p .label-success,
+#view .Dashboard .devices-list .label-success,
+#view .Dashboard .label-success,
+#view .Dashboard .badge-success{
+  background:transparent !important;
+  color:#28c76f !important;
+  border:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  height:auto !important;
+  display:inline !important;
+  box-shadow:none !important;
+}
+
+/* 2) 无线模块加密字段：允许换行显示完整内容 */
+#view .Dashboard .router-status-wifi .settings-info .encryption{
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:break-word !important;
+  display:inline !important;
+}
+
+/* 3) 1列堆叠（如浏览器200%放大或窄屏）时，卡片占满容器且对齐 */
+@media (max-width: 1200px){
+  #view .Dashboard .section-content{
+    grid-template-columns:1fr !important;
+    justify-content:stretch !important;
+  }
+  #view .Dashboard .box-s1{
+    width:100% !important;
+  }
+}
+
+/* 4) 移动端断点优化：标签列变窄、值列宽度随之调整；超窄屏取消等高 */
+@media (max-width: 900px){
+}
+@media (max-width: 640px){
+  #view .Dashboard .box-s1{ min-height:unset !important; }
+}
+
+/* 5) 细节：表格在窄屏固定布局避免抖动 */
+#view .Dashboard table.table{ table-layout:fixed !important; }
+#view .Dashboard table.table td, #view .Dashboard table.table th{ overflow:hidden; text-overflow:ellipsis; }
+
+/* CASCADE v3.4 – 强化 success 标签、WiFi 加密不截断、单列对齐、移动端增强 */
+
+/* 1) 强化成功徽标为绿色文字（优先级覆盖 .label 的 !important） */
+#view .Dashboard .label.label-success,
+#view .Dashboard span.label.label-success,
+#view .Dashboard .badge.badge-success,
+#view .Dashboard span.badge.badge-success{
+  background:none !important;
+  background-color:transparent !important;
+  color:#28c76f !important;
+  border:0 !important;
+  padding:0 !important;
+  line-height:1.5 !important;
+  box-shadow:none !important;
+}
+#view .Dashboard .label-success,
+#view .Dashboard .badge-success{
+  background:none !important;
+  background-color:transparent !important;
+  color:#28c76f !important;
+}
+
+/* 2) 无线模块：值列可换行，避免“加密”被省略 */
+#view .Dashboard .router-status-wifi .settings-info p span:last-child{
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:clip !important;
+  word-break:break-word !important;
+}
+
+/* 3) <=1200px 时改为单列并左对齐填满，消除纵向错位 */
+@media (max-width: 1200px){
+  #view .Dashboard .section-content{
+    grid-template-columns: 1fr !important;
+    justify-content: start !important;
+    justify-items: stretch !important;
+    align-items: start !important;
+    align-content: start !important;
+    gap: 16px !important;
+  }
+  #view .Dashboard .box-s1{
+    width:100% !important;
+    margin:0 !important;
+  }
+}
+
+/* 4) 移动端断点增强：标签与数值纵排，表格可横向滚动 */
+@media (max-width: 540px){
+  #view .Dashboard .settings-info p{ display:grid !important; grid-template-columns: 1fr !important; row-gap: 2px !important; }
+  #view .Dashboard .box-s1{ min-height:unset !important; }
+  #view .Dashboard .devices-list{ overflow-x:auto !important; }
+  #view .Dashboard .devices-list table{ min-width:540px !important; }
+}
+@media (max-width: 420px){
+  #view .Dashboard .settings-info p{ row-gap: 3px !important; }
+  #view .Dashboard .devices-list table{ min-width:480px !important; }
+}
+
+/* CASCADE v3.5 – 单列断点提升/统一间距/移动端DNS与表格修正/防页面横向溢出 */
+
+/* A) <=1360 宽度强制单列并消除模块自身外边距造成的“分组对齐”和不等间距 */
+@media (max-width: 1360px){
+  #view .Dashboard .section-content{
+    grid-template-columns: 1fr !important;
+    justify-content: stretch !important;
+    justify-items: stretch !important;
+    align-items: start !important;
+    gap: 16px !important;
+    row-gap: 16px !important;
+    column-gap: 16px !important;
+  }
+  #view .Dashboard .box-s1{
+    width:100% !important;
+    margin:0 !important;
+  }
+  #view .Dashboard .internet-status-self,
+  #view .Dashboard .router-status-system,
+  #view .Dashboard .router-status-lan,
+  #view .Dashboard .router-status-wifi{
+    margin:0 !important;
+  }
+}
+
+/* B) 全局统一间距：由 grid gap 控制，阻断子项额外 margin 影响 */
+#view .Dashboard .section-content{ gap:16px !important; row-gap:16px !important; column-gap:16px !important; }
+#view .Dashboard .section-content > *{ margin:0 !important; }
+
+/* C) 手机端：把可能并排的块（例如 IPv4 / IPv6 或 WiFi 左右半栏）改为纵向堆叠 */
+@media (max-width: 640px){
+  #view .Dashboard .internet-status-self .box-body{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  #view .Dashboard .router-status-wifi .box-body{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  /* 表格仅在卡片内横向滚动，避免页面级溢出 */
+  #view .Dashboard .box-s1{ overflow:hidden !important; }
+  #view .Dashboard .box-s1 table{
+    display:block !important;
+    width:max-content !important;
+    max-width:none !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  /* 防止页面级横向滚动条 */
+  html, body, #view{ overflow-x:hidden !important; }
+}
+
+/* D) 极窄屏进一步压缩卡片间距 */
+@media (max-width: 420px){
+  #view .Dashboard .section-content{ gap:12px !important; }
+}
+
+/* CASCADE v3.6 – 强制单列(<=1600)、统一间距、DNS/IPv4/IPv6 对齐、表格仅卡片内滚动 */
+
+/* 0) 兜底：避免页面级横向滚动 */
+html, body, #view{ overflow-x:hidden !important; }
+
+/* 1) <=1600px：更广阔断点强制单列，并覆盖可能的其它容器写法 */
+@media (max-width: 1600px){
+  #view .Dashboard .section-content,
+  #view .Dashboard .dashboard-bg .section-content,
+  #view .Dashboard .main-right .section-content{
+    display:grid !important;
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: max-content !important;
+    justify-items: stretch !important;
+    align-items: start !important;
+    gap: 16px !important;
+  }
+  /* 卡片与模块去 margin，仅用 gap 控距，避免出现“成组对齐/不等间距” */
+  #view .Dashboard .section-content > *,
+  #view .Dashboard .internet-status-self,
+  #view .Dashboard .router-status-system,
+  #view .Dashboard .router-status-lan,
+  #view .Dashboard .router-status-wifi,
+  #view .Dashboard .box-s1{
+    margin:0 !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+}
+
+/* 2) 统一使用 grid gap 控制间距（常态也生效） */
+#view .Dashboard .section-content{ gap:16px !important; }
+#view .Dashboard .section-content > *{ margin:0 !important; }
+
+/* 3) DNS/IPv4/IPv6 对齐：扩展到 <=900px 都采用“标签在上、值在下”并允许换行 */
+@media (max-width: 900px){
+  #view .Dashboard .settings-info p{ display:grid !important; grid-template-columns: 1fr !important; row-gap: 2px !important; }
+  /* IPv4/IPv6 两块垂直堆叠 */
+  #view .Dashboard .internet-status-self .box-body,
+  #view .Dashboard .router-status-wifi .box-body{ display:grid !important; grid-template-columns: 1fr !important; gap:8px !important; }
+}
+
+/* 4) 表格仅卡片内横向滚动，防止撑破页面；单元格不截断内容 */
+#view .Dashboard .devices-list{ display:block !important; width:100% !important; overflow-x:auto !important; -webkit-overflow-scrolling:touch !important; }
+#view .Dashboard .box-s1{ contain: layout paint !important; }
+
+/* 5) 极窄屏进一步压缩卡片间距 */
+@media (max-width: 420px){
+  #view .Dashboard .section-content{ gap:12px !important; }
+}
+
+/* CASCADE v3.7 – 信息行对齐/DNS 左缩进与间隔修正/无线加密值列放宽/表格宽屏自适应 */
+
+/* 1) 统一信息行为两列栅格：左固定标签列、右自适应值列 */
+#view .Dashboard .settings-info p{
+  display:grid !important;
+  grid-template-columns: var(--label-w, 120px) minmax(0,1fr) !important;
+  column-gap: 10px !important;
+  margin: 0 0 6px 0 !important;
+  line-height: 1.6 !important;
+}
+#view .Dashboard .settings-info p span:first-child{
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+#view .Dashboard .settings-info p span:last-child{
+  min-width: 0 !important; /* 允许正确挤压而不产生额外换行 */
+}
+
+/* 2) 互联网模块：去左缩进、统一列宽，修正 DNSv4/6 比其它行更靠左/间距不一致 */
+#view .Dashboard .internet-status-self .settings-info{ padding-left:0 !important; margin-left:0 !important; }
+#view .Dashboard .internet-status-self .settings-info p{ --label-w: 120px; }
+
+/* 3) 无线模块：给值列更多空间；宽屏避免“加密”换行，窄屏仍可换行 */
+@media (min-width: 1024px){
+}
+@media (max-width: 900px){
+}
+
+/* 4) 表格：宽屏基于卡片宽度自适应；窄屏保留卡片内横向滚动（不影响整页） */
+@media (min-width: 900px){
+  #view .Dashboard .devices-list{ overflow-x: hidden !important; }
+  #view .Dashboard .devices-list table,
+  #view .Dashboard .router-status-wifi table{
+    width:100% !important;
+    max-width:100% !important;
+    table-layout:auto !important;
+  }
+  #view .Dashboard .devices-list th, #view .Dashboard .devices-list td,
+  #view .Dashboard .router-status-wifi th, #view .Dashboard .router-status-wifi td{
+    white-space: normal !important;
+    word-break: break-word !important; /* 自适应换行，避免被粗暴裁切 */
+  }
+}
+@media (max-width: 640px){
+  #view .Dashboard .devices-list{ overflow-x:auto !important; }
+}
+
+/* 5) 微调：去除 p 的任何意外内边距，保证行间距一致 */
+#view .Dashboard .settings-info p{ padding:0 !important; }
+
+/* CASCADE v3.8 – 标题图标统一/DNS 缩进/无线加密宽度/表格自适应优化 */
+
+/* 0) 主题变量 */
+#view .Dashboard{ --card-icon: 40px; --card-title-fs: 18px; }
+
+/* 1) 统一标题与图标尺寸和相对位置（兼容多种标题容器命名） */
+#view .Dashboard .box-s1 .title,
+#view .Dashboard .box-s1 .box-title,
+#view .Dashboard .box-s1 .module-title{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  font-size: var(--card-title-fs, 18px) !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+}
+#view .Dashboard .box-s1 .title i,
+#view .Dashboard .box-s1 .box-title i,
+#view .Dashboard .box-s1 .module-title i,
+#view .Dashboard .box-s1 .title svg,
+#view .Dashboard .box-s1 .box-title svg,
+#view .Dashboard .box-s1 .module-title svg,
+#view .Dashboard .box-s1 .title img,
+#view .Dashboard .box-s1 .box-title img,
+#view .Dashboard .box-s1 .module-title img{
+  width: var(--card-icon, 40px) !important;
+  height: var(--card-icon, 40px) !important;
+  font-size: var(--card-icon, 40px) !important;
+  line-height:1 !important;
+  object-fit: contain !important;
+  flex:0 0 auto !important;
+}
+#view .Dashboard .box-s1 .title + .box-body,
+#view .Dashboard .box-s1 .box-title + .box-body,
+#view .Dashboard .box-s1 .module-title + .box-body{ margin-top:8px !important; }
+
+/* 2) 统一信息行：两列栅格与一致的行/列间距 */
+#view .Dashboard .settings-info p{
+  display:grid !important;
+  grid-template-columns: var(--label-w, 120px) minmax(0,1fr) !important;
+  column-gap:10px !important;
+  margin:0 0 6px 0 !important;
+  padding:0 !important;
+  line-height:1.6 !important;
+}
+#view .Dashboard .settings-info p span:first-child{ text-align:right !important; white-space:nowrap !important; }
+#view .Dashboard .settings-info p span:last-child{ min-width:0 !important; }
+
+/* 3) DNS 左缩进 & 间距：清除列表默认缩进并将 li 也当作一行处理 */
+#view .Dashboard .settings-info ul,
+#view .Dashboard .settings-info ol{ padding-left:0 !important; margin-left:0 !important; list-style:none !important; }
+#view .Dashboard .settings-info li{ display:grid !important; grid-template-columns: var(--label-w,120px) minmax(0,1fr) !important; column-gap:10px !important; margin:0 0 6px 0 !important; padding:0 !important; }
+/* 互联网模块兜底去任何左侧缩进 */
+#view .Dashboard .internet-status-self .settings-info *{ margin-left:0 !important; padding-left:0 !important; }
+
+/* 4) 无线模块“加密”值列更宽；宽屏不换行，窄屏可换行 */
+@media (min-width: 1024px){
+}
+@media (max-width: 900px){
+}
+
+/* 5) 表格更优雅的自适应：
+   - 大屏 100% 宽度 + 固定布局 + 单元格智能换行；
+   - 窄屏依容器宽度自动换行，尽量避免页面级横向滚动。 */
+#view .Dashboard .devices-list,
+#view .Dashboard .router-status-wifi .devices-list{ overflow-x:hidden !important; }
+#view .Dashboard .devices-list table,
+#view .Dashboard .router-status-wifi table{
+  width:100% !important;
+  max-width:100% !important;
+  table-layout: fixed !important;
+}
+#view .Dashboard .devices-list th, #view .Dashboard .devices-list td,
+#view .Dashboard .router-status-wifi th, #view .Dashboard .router-status-wifi td{
+  white-space: normal !important;
+  overflow-wrap: anywhere !important; /* 比 break-all 更友好 */
+}
+
+/* 6) 极窄屏保底（如仍出现横向溢出，则仅卡片内滚动） */
+@media (max-width: 420px){
+  #view .Dashboard .devices-list{ overflow-x:auto !important; -webkit-overflow-scrolling:touch !important; }
+}
+
+/* CASCADE v3.8.A – 标题图标上下堆叠（仅方向调整，不改尺寸/背景） */
+#view .Dashboard .box-s1 .title,
+#view .Dashboard .box-s1 .box-title,
+#view .Dashboard .box-s1 .module-title{
+  display:flex !important;
+  flex-direction: column !important; /* 改为上下堆叠 */
+  align-items:center !important;
+  justify-content:center !important;
+  text-align:center !important;
+  gap:8px !important; /* 保持与 v3.8 相同的间距 */
+}
+/* CASCADE v3.8.A1 – 统一标题容器留白与标题外边距（不改尺寸/背景） */
+#view .Dashboard .box-s1 .title,
+#view .Dashboard .box-s1 .box-title,
+#view .Dashboard .box-s1 .module-title{
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+#view .Dashboard .box-s1 .title > *,
+#view .Dashboard .box-s1 .box-title > *,
+#view .Dashboard .box-s1 .module-title > *{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/* CASCADE v3.8.A2 – 统一标题与图标的居中参考为卡片全宽，去除偏移/浮动 */
+#view .Dashboard .box-s1 .title,
+#view .Dashboard .box-s1 .box-title,
+#view .Dashboard .box-s1 .module-title{
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  float: none !important;
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  /* 保持 A 的纵向堆叠与居中 */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;  /* 横向居中 */
+  justify-content: center !important;
+  text-align: center !important;
+}
+#view .Dashboard .box-s1 .title > *,
+#view .Dashboard .box-s1 .box-title > *,
+#view .Dashboard .box-s1 .module-title > *{
+  float: none !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#view .Dashboard .box-s1 .title > h1,
+#view .Dashboard .box-s1 .title > h2,
+#view .Dashboard .box-s1 .title > h3,
+#view .Dashboard .box-s1 .title > h4,
+#view .Dashboard .box-s1 .title > h5,
+#view .Dashboard .box-s1 .title > h6,
+#view .Dashboard .box-s1 .box-title > h1,
+#view .Dashboard .box-s1 .box-title > h2,
+#view .Dashboard .box-s1 .box-title > h3,
+#view .Dashboard .box-s1 .box-title > h4,
+#view .Dashboard .box-s1 .box-title > h5,
+#view .Dashboard .box-s1 .box-title > h6,
+#view .Dashboard .box-s1 .module-title > h1,
+#view .Dashboard .box-s1 .module-title > h2,
+#view .Dashboard .box-s1 .module-title > h3,
+#view .Dashboard .box-s1 .module-title > h4,
+#view .Dashboard .box-s1 .module-title > h5,
+#view .Dashboard .box-s1 .module-title > h6{
+  width: 100% !important;         /* 让标题文本以卡片宽度为参照 */
+  text-align: center !important;
+}
+/* CASCADE v3.8.B – 互联网卡片 DNS 行两列栅格对齐（与 p 完全一致） */
+/* 1) 在容器层定义标签列宽，确保 p 与 li 使用相同 --label-w */
+#view .Dashboard .internet-status-self .settings-info{ --label-w: 120px !important; }
+
+/* 2) DNS 列表 li 与 p 完全同栅格与行距 */
+#view .Dashboard .internet-status-self .settings-info li{
+  display: grid !important;
+  grid-template-columns: var(--label-w, 120px) minmax(0,1fr) !important;
+  column-gap: 10px !important;
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  line-height: 1.6 !important; /* 与 p 保持一致 */
+}
+#view .Dashboard .internet-status-self .settings-info li > :first-child{
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+#view .Dashboard .internet-status-self .settings-info li > :last-child{
+  min-width: 0 !important;
+}
+
+/* 3) 窄屏下（<=900px）li 也与 p 一样切换为单列，提高可读性 */
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info li{
+    grid-template-columns: 1fr !important;
+    row-gap: 2px !important;
+  }
+  #view .Dashboard .internet-status-self .settings-info li > :first-child{
+    width: auto !important;
+    text-align: left !important;
+  }
+  #view .Dashboard .internet-status-self .settings-info li > :last-child{
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B1 – 修复 DNS 多行间距：去除相邻列表的额外间隙，li 间距与 p 一致 */
+#view .Dashboard .internet-status-self .settings-info ul,
+#view .Dashboard .internet-status-self .settings-info ol{
+  margin: 0 !important;            /* 去除顶/底默认 margin，避免列表之间额外空隙 */
+  padding: 0 !important;
+  list-style: none !important;
+  display: block !important;       /* 防止意外的 grid/flex 造成 gap */
+  gap: 0 !important;               /* 若被设为 grid 时兜底去 gap */
+  row-gap: 0 !important;
+  column-gap: 0 !important;
+}
+#view .Dashboard .internet-status-self .settings-info ul + ul,
+#view .Dashboard .internet-status-self .settings-info ol + ol{
+  margin-top: 0 !important;        /* 相邻列表之间不再产生额外空白 */
+}
+#view .Dashboard .internet-status-self .settings-info li{
+  display: grid !important;        /* 与 p 保持一致的两列栅格 */
+  grid-template-columns: var(--label-w,120px) minmax(0,1fr) !important;
+  column-gap: 10px !important;
+  margin: 0 0 6px 0 !important;    /* 与 p 行间距一致 */
+  padding: 0 !important;
+  line-height: 1.6 !important;     /* 与 p 行高一致 */
+}
+#view .Dashboard .internet-status-self .settings-info li + li{
+  margin-top: 0 !important;        /* 防止任何 li+li 顶部 margin 覆盖 */
+}
+#view .Dashboard .internet-status-self .settings-info li > :first-child{
+  text-align: right !important; white-space: nowrap !important;
+}
+#view .Dashboard .internet-status-self .settings-info li > :last-child{
+  min-width: 0 !important;
+}
+/* CASCADE v3.8.B2 – DNS 单子项(li 仅有值无标签)对齐到值列，保证与 p/首行一致 */
+#view .Dashboard .internet-status-self .settings-info li > :only-child{
+  grid-column: 2 / 3 !important;          /* 占据第2列（值列） */
+  text-align: left !important;            /* 与值列一致 */
+  white-space: normal !important;         /* 可换行 */
+  word-break: break-word !important;
+  min-width: 0 !important;
+}
+/* CASCADE v3.8.B3 – 互联网卡片 DNS 表格：行距与两列对齐统一为与 p 相同 */
+#view .Dashboard .internet-status-self .settings-info table{
+  width: 100% !important;
+  margin: 0 !important;
+  border-collapse: separate !important;     /* 允许行间距 */
+  border-spacing: 0 6px !important;         /* 与 p 的 6px 行距一致 */
+  table-layout: fixed !important;           /* 列宽可控，避免抖动 */
+}
+#view .Dashboard .internet-status-self .settings-info table tr{ vertical-align: top !important; }
+#view .Dashboard .internet-status-self .settings-info table td{ padding: 0 !important; }
+#view .Dashboard .internet-status-self .settings-info table td:first-child{
+  width: var(--label-w,120px) !important;   /* 与 p 的标签列一致 */
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+#view .Dashboard .internet-status-self .settings-info table td:last-child{
+  min-width: 0 !important;                  /* 值列可被正确挤压 */
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+/* CASCADE v3.8.B4 – 将 DNS 表格行模拟为 p 的两列栅格与行距（不改 HTML） */
+#view .Dashboard .internet-status-self .settings-info table,
+#view .Dashboard .internet-status-self .settings-info table tbody{
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-collapse: initial !important;
+  border-spacing: 0 !important; /* 覆盖 B3 的 0 6px，改用 tr 的 margin 控制行距 */
+}
+#view .Dashboard .internet-status-self .settings-info table tr{
+  display: grid !important;
+  grid-template-columns: var(--label-w,120px) minmax(0,1fr) !important;
+  column-gap: 10px !important;
+  margin: 0 0 6px 0 !important; /* 与 p 保持一致的行距 */
+}
+#view .Dashboard .internet-status-self .settings-info table td{
+  display: block !important;  /* 作为 grid item */
+  padding: 0 !important;
+}
+#view .Dashboard .internet-status-self .settings-info table td:first-child{
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+#view .Dashboard .internet-status-self .settings-info table td:last-child{
+  min-width: 0 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info table tr{
+    grid-template-columns: 1fr !important; /* 与 p 的窄屏单列一致 */
+    row-gap: 2px !important;
+  }
+  #view .Dashboard .internet-status-self .settings-info table td:first-child{
+    text-align: left !important;
+  }
+}
+/* CASCADE v3.8.B4.1 – 互联网卡片统一行高为20.8px(=1.6*13px) + 清零 p.mt-2 上边距 */
+#view .Dashboard .internet-status-self .settings-info{
+  line-height: 1.6 !important;      /* 统一所有后代的行高为 1.6 */
+}
+#view .Dashboard .internet-status-self .settings-info p.mt-2{
+  margin-top: 0 !important;         /* 抵消 mt-2 造成的额外上边距 */
+}
+/* DNS 表格也明确跟随相同行高，避免出现 19.5 */
+#view .Dashboard .internet-status-self .settings-info table,
+#view .Dashboard .internet-status-self .settings-info table tr,
+#view .Dashboard .internet-status-self .settings-info table td{
+  line-height: 1.6 !important;
+}
+/* CASCADE v3.8.B4.1 – 互联网卡片统一行高为20.8px(=1.6*13px) + 清零 p.mt-2 上边距 */
+#view .Dashboard .internet-status-self .settings-info{
+  line-height: 1.6 !important;      /* 统一所有后代的行高为 1.6 */
+}
+#view .Dashboard .internet-status-self .settings-info p.mt-2{
+  margin-top: 0 !important;         /* 抵消 mt-2 造成的额外上边距 */
+}
+/* DNS 表格也明确跟随相同行高，避免出现 19.5 */
+#view .Dashboard .internet-status-self .settings-info table,
+#view .Dashboard .internet-status-self .settings-info table tr,
+#view .Dashboard .internet-status-self .settings-info table td{
+  line-height: 1.6 !important;
+}
+/* CASCADE v3.8.B4.2 – 互联网卡片 成功徽标统一行高为20.8px（line-height:1.6） */
+#view .Dashboard .internet-status-self .settings-info .label-success{
+  line-height: 1.6 !important;   /* 13px * 1.6 = 20.8px */
+  height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: inline !important;
+}
+/* CASCADE v3.8.B4.3 – DNSv4/DNSv6 标签左移 4px（仅互联网卡片） */
+#view .Dashboard .internet-status-self .settings-info table tr{
+  grid-template-columns: calc(var(--label-w,120px) - 4px) minmax(0,1fr) !important;
+}
+/* CASCADE v3.8.B4.3-rollback – 撤销 DNS 标签左移 4px，恢复列宽 */
+#view .Dashboard .internet-status-self .settings-info table tr{
+  grid-template-columns: var(--label-w,120px) minmax(0,1fr) !important;
+}
+/* CASCADE v3.8.B4.4 – DNS 表格对齐 p：首列 padding-right:10px + 轨道 minmax(90px,120px) + 取消列间隙 */
+#view .Dashboard .internet-status-self .settings-info table tr{
+  grid-template-columns: minmax(90px, var(--label-w,120px)) minmax(0,1fr) !important;
+  column-gap: 0 !important; /* 与 p 相同，由首列 padding-right 提供 10px 视觉分隔 */
+}
+#view .Dashboard .internet-status-self .settings-info table td:first-child{
+  padding-right: 10px !important; /* 复刻 p 标签列的 0 10px 0 0 */
+  width: auto !important;        /* 覆盖早前可能设置的固定宽度 */
+}
+/* CASCADE v3.8.B4.4 – DNS 表格与 p 行起始对齐：补齐左右 padding，保留 column-gap:10px */
+#view .Dashboard .internet-status-self .settings-info table tr{
+  padding: 0 5px !important;  /* 与 p 的 padding:0 5px 一致 */
+  column-gap: 10px !important; /* 明确保持 10px，不改为 0 */
+}
+/* CASCADE v3.8.B4.5 – DNS 表格首列补齐与 p 相同的右内边距，保持 column-gap:10px 不变 */
+#view .Dashboard .internet-status-self .settings-info table td:first-child{
+  padding-right: 10px !important; /* 与 p 标签列一致 */
+  width: auto !important;         /* 覆盖 B3 的固定宽度，避免与轨道冲突 */
+}
+/* CASCADE v3.8.B4.4-rollback – 移除 DNS 表格 tr 额外内边距，保留 column-gap:10px */
+#view .Dashboard .internet-status-self .settings-info table tr{
+  padding: 0 !important;
+}
+/* CASCADE v3.8.B4.6 – 互联网卡片标题背景高度从 97 调整为 87.19 */
+#view .Dashboard .internet-status-self .internet-status-info .title{
+  height: 87.19px !important;
+}
+/* CASCADE v3.8.B4.7 – 系统卡片(路由器状态)标题背景高度从 97 调整为 87.19 */
+#view .Dashboard .router-status-self .router-status-info .title{
+  height: 87.19px !important;
+}
+/* CASCADE v3.8.B4.8 – 统一“互联网”卡片标题图标为黑色，与其他卡片一致 */
+#view .Dashboard .internet-status-self .internet-status-info .title i,
+#view .Dashboard .internet-status-self .internet-status-info .title svg{
+  color: var(--text-color-high, #212529) !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+#view .Dashboard .internet-status-self .internet-status-info .title img{
+  -webkit-filter: brightness(0) saturate(100%) !important;
+  filter: brightness(0) saturate(100%) !important; /* 将彩色图标转为黑色 */
+}
+/* CASCADE v3.8.B4.13 – DNS 标签在任何屏幕宽度始终右对齐（覆盖旧的 <900 左对齐） */
+#view .Dashboard .internet-status-self .settings-info li > :first-child,
+#view .Dashboard .internet-status-self .settings-info table tr > th:first-child,
+#view .Dashboard .internet-status-self .settings-info table tr > td:first-child{
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info li > :first-child,
+  #view .Dashboard .internet-status-self .settings-info table tr > th:first-child,
+  #view .Dashboard .internet-status-self .settings-info table tr > td:first-child{
+    text-align: right !important;
+    white-space: nowrap !important;
+  }
+}
+/* CASCADE v3.8.B4.14 – 窄屏下值列内指定文本框占满宽度，避免过早换行与右侧浪费 */
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .label-success,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .uptime,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .protocol,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .addrsv4,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .gatewayv4,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .ipprefixv6,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .gatewayv6{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.15 – 窄屏单列值列宽度修正：覆盖早期 width:calc(100%-120px) 等，消除右侧留白 */
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info p span:last-child{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.16 – ≤900px 值列文本满宽：直接作用于值 span（包含 uptime/protocol/addrsv4/gatewayv4/ipprefixv6/gatewayv6/label-success） */
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info p > span.uptime,
+  #view .Dashboard .internet-status-self .settings-info p > span.protocol,
+  #view .Dashboard .internet-status-self .settings-info p > span.addrsv4,
+  #view .Dashboard .internet-status-self .settings-info p > span.gatewayv4,
+  #view .Dashboard .internet-status-self .settings-info p > span.ipprefixv6,
+  #view .Dashboard .internet-status-self .settings-info p > span.gatewayv6,
+  #view .Dashboard .internet-status-self .settings-info p > span.label-success,
+  #view .Dashboard .internet-status-self .settings-info p > span.label.label-success{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;   /* 网格项填满 */
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.17 – 覆盖值列容器本身：≤900px 将 p span:nth-child(2) 设为满宽块级并允许换行 */
+@media (max-width: 900px){
+  #view .Dashboard .internet-status-self .settings-info p span:nth-child(2){
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-self: stretch !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.18 – 扩展到 .internet-status-info 并强制值列容器满宽（≤900px）*/
+@media (max-width: 900px){
+  /* 值列容器：第2个 span 或最后一个 span 满宽块级 */
+  #view .Dashboard .internet-status-self .settings-info p span:nth-child(2),
+  #view .Dashboard .internet-status-self .settings-info p span:last-child,
+  #view .Dashboard .internet-status-info .settings-info p span:nth-child(2),
+  #view .Dashboard .internet-status-info .settings-info p span:last-child{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    justify-self: stretch !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+  /* 值列内的关键 span 也设为满宽块级（兼容嵌套） */
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .label-success,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .uptime,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .protocol,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .addrsv4,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .gatewayv4,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .ipprefixv6,
+  #view .Dashboard .internet-status-self .settings-info p span:last-child .gatewayv6,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .label-success,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .uptime,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .protocol,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .addrsv4,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .gatewayv4,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .ipprefixv6,
+  #view .Dashboard .internet-status-info .settings-info p span:last-child .gatewayv6{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.19 – 全卡片统一修复：≤900px 时信息行值列满宽且可换行，避免过早换行与右侧留白 */
+@media (max-width: 900px){
+  /* 作用于所有卡片的 settings-info 信息行，仅影响值列（非首列） */
+  #view .Dashboard .settings-info p > span:not(:first-child),
+  #view .Dashboard .settings-info p > span:nth-child(2),
+  #view .Dashboard .settings-info p > span:last-child{
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    justify-self: stretch !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    word-break: break-word !important;
+  }
+}
+/* CASCADE v3.8.B4.20 – 卡片宽度优先级修复：始终尊重 900px 上限；≤1600px 单列时卡片水平居中 */
+/* 1) 全局：为所有卡片重新声明 900px 上限（覆盖此前在多处断点里的 max-width:100% !important） */
+#view .Dashboard .box-s1{
+  max-width: 900px !important;
+}
+/* 2) ≤1600px：保留单列（现有规则），但让卡片在网格中居中，且不超过 900px */
+@media (max-width: 1600px){
+  #view .Dashboard .section-content{ justify-content: center !important; }
+  #view .Dashboard .box-s1{
+    width: 100% !important;          /* 容器窄于 900 时随容器收缩 */
+    max-width: 900px !important;     /* 容器宽于 900 时严格限宽 */
+    margin: 0 auto !important;       /* 常规居中 */
+    justify-self: center !important; /* Grid 项目在网格单元内居中 */
+  }
+}
+/* CASCADE v3.8.B4.21 – 值列满宽且可换行：全卡片、所有宽度生效（取消 ≤900 限制） */
+#view .Dashboard .settings-info p > span:not(:first-child),
+#view .Dashboard .settings-info p > span:nth-child(2),
+#view .Dashboard .settings-info p > span:last-child{
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  justify-self: stretch !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: break-word !important;
+}
+/* CASCADE v3.8.B4.22 – 无线卡片：统一行高20.8px + radio-info 标签列固定80px */
+
+/* A) 无线卡片内所有信息行行高统一为 20.8px (=13px*1.6) ，替代历史 19.5 */
+#view .Dashboard .router-status-wifi .settings-info{ line-height: 1.6 !important; }
+#view .Dashboard .router-status-wifi .settings-info p{ line-height: 1.6 !important; }
+#view .Dashboard .router-status-wifi .settings-info table,
+#view .Dashboard .router-status-wifi .settings-info table tr,
+#view .Dashboard .router-status-wifi .settings-info table td{ line-height: 1.6 !important; }
+#view .Dashboard .router-status-wifi .settings-info .label-success{
+  line-height: 1.6 !important;
+  height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: inline !important;
+}
+
+/* B) 无线卡片的 radio-info：固定标签列为 80px ，不随断点变化 */
+#view .Dashboard .router-status-wifi .radio-info .settings-info p{ --label-w: 80px !important; }
+#view .Dashboard .router-status-wifi .radio-info .settings-info p span:first-child{
+  width: 80px !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  padding-right: 10px !important;
+}
+/* CASCADE v3.8.B4.23 – WiFi .radio-info 标签列固定 80px，覆盖 min/max/auto 与断点规则 */
+#view .Dashboard .router-status-wifi .radio-info .settings-info{ --label-w: 80px !important; }
+
+/* p 行：固定首列为 80px，并阻断任何 auto/min/max 规则 */
+#view .Dashboard .router-status-wifi .radio-info .settings-info p{
+  grid-template-columns: var(--label-w, 80px) minmax(0,1fr) !important;
+}
+#view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child{
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  flex: 0 0 80px !important; /* 若某些行用 flex，此处兜底固定 */
+  text-align: right !important;
+  white-space: nowrap !important;
+  padding-right: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* li 行：与 p 行保持一致，避免 li 的标签列被其它规则放宽 */
+#view .Dashboard .router-status-wifi .radio-info .settings-info li{
+  grid-template-columns: var(--label-w, 80px) minmax(0,1fr) !important;
+}
+#view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  padding-right: 10px !important;
+}
+
+/* 断点内也再次声明，保证覆盖 <=900 / <=640 里 100px / 88px 的旧规则 */
+@media (max-width: 900px){
+  #view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{ width:80px !important; min-width:80px !important; max-width:80px !important; }
+}
+@media (max-width: 640px){
+  #view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{ width:80px !important; min-width:80px !important; max-width:80px !important; }
+}
+/* CASCADE v3.8.B4.24 – 修正选择器方向并加固：WiFi .radio-info 标签列固定 80px（覆盖 min/max 与断点） */
+/* 既匹配 .settings-info 内含 .radio-info 的结构，也匹配 .radio-info 内含 .settings-info 的结构 */
+#view .Dashboard .router-status-wifi .settings-info .radio-info,
+#view .Dashboard .router-status-wifi .radio-info .settings-info{ --label-w: 80px !important; }
+
+/* p 行：固定首列为 80px，覆盖任何 auto/min/max/断点 */
+#view .Dashboard .router-status-wifi .settings-info .radio-info p,
+#view .Dashboard .router-status-wifi .radio-info .settings-info p{
+  grid-template-columns: var(--label-w, 80px) minmax(0,1fr) !important;
+}
+#view .Dashboard .router-status-wifi .settings-info .radio-info p > span:first-child,
+#view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child{
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  flex: 0 0 80px !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  padding-right: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* li 行：与 p 行一致 */
+#view .Dashboard .router-status-wifi .settings-info .radio-info li,
+#view .Dashboard .router-status-wifi .radio-info .settings-info li{
+  grid-template-columns: var(--label-w, 80px) minmax(0,1fr) !important;
+}
+#view .Dashboard .router-status-wifi .settings-info .radio-info li > :first-child,
+#view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  padding-right: 10px !important;
+}
+
+/* 断点内再次声明，确保压过 <=900 时的 100px 与 <=640 时的 88px 旧规则 */
+@media (max-width: 900px){
+  #view .Dashboard .router-status-wifi .settings-info .radio-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .settings-info .radio-info li > :first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{ width:80px !important; min-width:80px !important; max-width:80px !important; }
+}
+@media (max-width: 640px){
+  #view .Dashboard .router-status-wifi .settings-info .radio-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info p > span:first-child,
+  #view .Dashboard .router-status-wifi .settings-info .radio-info li > :first-child,
+  #view .Dashboard .router-status-wifi .radio-info .settings-info li > :first-child{ width:80px !important; min-width:80px !important; max-width:80px !important; }
+}
+/* CASCADE v3.8.B4.25 – 规则清理（卡片宽度兜底）+ WiFi 设备表行高统一 */
+/* 1) 任何断点下，卡片都以网格单元为参照填充，且不超过 900px */
+#view .Dashboard .box-s1{
+  width: 100% !important;
+  max-width: 900px !important;
+  box-sizing: border-box !important;
+}
+
+/* 2) WiFi 设备表行高统一为 1.6，顶部对齐，和信息行保持一致 */
+#view .Dashboard .router-status-wifi .devices-list table,
+#view .Dashboard .router-status-wifi .devices-list tr,
+#view .Dashboard .router-status-wifi .devices-list th,
+#view .Dashboard .router-status-wifi .devices-list td{
+  line-height: 1.6 !important;
+  vertical-align: top !important;
+}
+
+/* CASCADE v3.8.B4.26 – WiFi 非 radio-info 行：标签列回退为 100px，扩大“加密”等值列空间（保留 radio-info 80px） */
+#view .Dashboard .router-status-wifi .settings-info p{ --label-w: 100px; }
+#view .Dashboard .router-status-wifi .settings-info li{ --label-w: 100px; }
+
+/* CASCADE v3.8.B4.27 – 全局值列自动换行（无断点，覆盖任何 nowrap） */
+#view .Dashboard .settings-info p span:last-child,
+#view .Dashboard .settings-info li > :last-child{
+  white-space: normal !important;
+  overflow-wrap: anywhere !important; /* 长串如哈希、URL、IPv6、Base64 都可断行 */
+  word-break: break-word !important;  /* 兼容旧内核 */
+  min-width: 0 !important;            /* grid/flex 下允许被压缩 */
+}
+
+/* CASCADE v3.8.B4.28 – WiFi info 栅格列最小宽度小幅提升至 260px（使 .radio-info 更宽） */
+#view .Dashboard .router-status-wifi .settings-info{
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+}
+
+/* CASCADE v3.8.B4.29 – 仅提升 .radio-info 自身的最小宽度，推动其所在列变宽 */
+#view .Dashboard .router-status-wifi .settings-info .radio-info,
+#view .Dashboard .router-status-wifi .radio-info{
+  min-width: 280px !important;   /* 适度放宽，若容器不足则自动降列 */
+  width: auto !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* CASCADE v3.8.B4.30 – WiFi “加密”行值列轻微放宽：52% → 60% */
+/* 兼容是否带 #view 的两种结构，且仅限第 6 行（通常为“加密”）的值列 */
+#view .Dashboard .router-status-wifi .settings-info > div p:nth-child(6) > span:last-child,
+.router-status-wifi .settings-info > div p:nth-child(6) > span:last-child{
+  width: 60% !important;
+}
+
+/* CASCADE v3.8.B4.28b – WiFi info 栅格列最小宽度统一提升至 280px（兼容是否存在 #view） */
+#view .Dashboard .router-status-wifi .settings-info,
+.router-status-wifi .settings-info{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+}
+
+/* CASCADE v3.8.B4.31 – radio-info 占两列以增加宽度；清理“加密”行百分比宽度为自适应 */
+#view .Dashboard .router-status-wifi .settings-info .radio-info,
+#view .Dashboard .router-status-wifi .radio-info,
+.router-status-wifi .settings-info .radio-info,
+.router-status-wifi .radio-info{
+  grid-column: span 2 !important;
+}
+
+/* 撤销旧 52%/60% 限制，改为自动填满可用宽度并可换行 */
+#view .Dashboard .router-status-wifi .wifi-info .settings-info > div p:nth-child(6) > span:last-child,
+.router-status-wifi .wifi-info .settings-info > div p:nth-child(6) > span:last-child,
+#view .Dashboard .router-status-wifi .settings-info > div p:nth-child(6) > span:last-child,
+.router-status-wifi .settings-info > div p:nth-child(6) > span:last-child{
+  width: auto !important;
+  max-width: 100% !important;
+  display: block !important;
+  height: auto !important;
+  line-height: 1.6 !important;
+}
+
+/* CASCADE v3.8.B4.32 – 限定 .radio-info 最大宽度为 250px；撤销 span2/min-width 扩张；WiFi 栅格列最小宽度恢复保守值 */
+#view .Dashboard .router-status-wifi .settings-info,
+.router-status-wifi .settings-info{
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important; /* 恢复保守列宽以避免整体变宽 */
+}
+
+#view .Dashboard .router-status-wifi .settings-info > .radio-info,
+#view .Dashboard .router-status-wifi .radio-info,
+.router-status-wifi .settings-info > .radio-info,
+.router-status-wifi .radio-info{
+  grid-column: auto !important;     /* 撤销 span 2 */
+  min-width: 0 !important;          /* 撤销 280 minw */
+  width: auto !important;
+  max-width: 250px !important;      /* 按需求上限 250 */
+  justify-self: start !important;   /* 防止拉伸到整列宽 */
+  box-sizing: border-box !important;
+}
+
+/* CASCADE v3.8.B4.33 – 无线卡片标签纵向对齐与间距统一
+   1) 所有 WiFi 信息行标签列统一 80px（与 radio-info 一致），保证纵向对齐
+   2) 去除标签 padding-right，统一用 column-gap:10px 控制间距，与互联网/系统一致 */
+#view .Dashboard .router-status-wifi .settings-info p,
+#view .Dashboard .router-status-wifi .settings-info li,
+.router-status-wifi .settings-info p,
+.router-status-wifi .settings-info li{
+  --label-w: 80px !important;
+  column-gap: 10px !important; /* 与全局一致，避免卡片内间距不统一 */
+}
+#view .Dashboard .router-status-wifi .settings-info p > span:first-child,
+#view .Dashboard .router-status-wifi .settings-info li > :first-child,
+.router-status-wifi .settings-info p > span:first-child,
+.router-status-wifi .settings-info li > :first-child{
+  padding-right: 0 !important;  /* 取消额外内边距，使用 column-gap 控间距 */
+  text-align: right !important; /* 与其它卡片一致 */
+}
+
+/* CASCADE v3.8.B4.34 – 无线卡片行级栅格与间距对齐（兼容有无 #view）
+   - 所有 WiFi 行（p/li）强制两列 Grid：标签固定宽度，值列自适应
+   - 去除标签额外 padding，统一用 column-gap:10px 控制
+   - 值列统一可换行，防止撑破与不对齐 */
+#view .Dashboard .router-status-wifi .settings-info p,
+.router-status-wifi .settings-info p,
+#view .Dashboard .router-status-wifi .settings-info li,
+.router-status-wifi .settings-info li{
+  display: grid !important;
+  grid-template-columns: var(--label-w, 80px) minmax(0, 1fr) !important;
+  column-gap: 10px !important;
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  align-items: start !important;
+  line-height: 1.6 !important;
+}
+#view .Dashboard .router-status-wifi .settings-info p > span:first-child,
+.router-status-wifi .settings-info p > span:first-child,
+#view .Dashboard .router-status-wifi .settings-info li > :first-child,
+.router-status-wifi .settings-info li > :first-child{
+  width: var(--label-w, 80px) !important;
+  min-width: var(--label-w, 80px) !important;
+  max-width: var(--label-w, 80px) !important;
+  padding-right: 0 !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+#view .Dashboard .router-status-wifi .settings-info p > span:last-child,
+.router-status-wifi .settings-info p > span:last-child,
+#view .Dashboard .router-status-wifi .settings-info li > :last-child,
+.router-status-wifi .settings-info li > :last-child{
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  min-width: 0 !important;
+}
+
+
+/* CASCADE v3.8.B4.44 – 互联网卡片 IPv4/IPv6 自适应横排/竖排
+   在卡片足够宽时横向两栏；不足时自动单列堆叠。仅作用于 .internet-status-self */
+#view .Dashboard .internet-status-self .settings-info,
+.internet-status-self .settings-info{
+  /* 使用自适应列：每列最小宽度由变量控制 */
+  --internet-col-min: var(--internet-col-min, 360px);
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(var(--internet-col-min), 1fr)) !important;
+  column-gap: 16px !important;
+  row-gap: 8px !important;
+  align-items: start !important;
+}
+/* 允许列内容在网格内收缩，避免溢出 */
+#view .Dashboard .internet-status-self .settings-info > div,
+.internet-status-self .settings-info > div{
+  min-width: 0 !important;
+}
+/* 让表格在列中占满宽度 */
+#view .Dashboard .internet-status-self .settings-info table,
+.internet-status-self .settings-info table{
+  width: 100% !important;
+  table-layout: auto !important;
+}
+/* 窄屏兜底：当视口极窄时，降低每列最小宽度，提前切换为单列 */
+@media (max-width: 480px){
+  #view .Dashboard .internet-status-self .settings-info,
+  .internet-status-self .settings-info{
+    --internet-col-min: 260px;
+  }
+}
+
+/* CASCADE v3.8.B4.44a – 调低最小列宽，扩大两列触发范围；大屏强制两列 */
+#view .Dashboard .internet-status-self .settings-info,
+.internet-status-self .settings-info{
+  --internet-col-min: 260px; /* 原 360px，调低以适配较窄卡片 */
+  grid-auto-flow: row dense !important;
+}
+/* 视口较宽时直接使用等分两列（避免 auto-fit 由于最小宽度判断保持单列） */
+@media (min-width: 980px){
+  #view .Dashboard .internet-status-self .settings-info,
+  .internet-status-self .settings-info{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 16px !important;
+  }
+}
+
+/* CASCADE v3.8.B4.48 – Dashboard 卡片自适应两列布局（auto-fit, minmax(480px, 1fr)）
+   说明：
+   - 在容器宽度足够时自动两列；不足时自然回落单列。
+   - 阈值约为 2*480 + gap（16）≈ 976px。
+   - 不改变卡片内容缩放，仅改变卡片容器布局。 */
+#view .Dashboard .section-content,
+.Dashboard .section-content{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch;
+}
+/* 确保网格子项可在轨道内自适应，不被最小内容尺寸撑大 */
+#view .Dashboard .section-content > div,
+.Dashboard .section-content > div{
+  min-width: 0;
+}
+
+/* CASCADE v3.8.B4.49 – Dashboard 卡片统一尺寸，最多两列 */
+#view .Dashboard .section-content,
+.Dashboard .section-content{
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* 统一宽度，最多两列 */
+  gap: 16px !important;
+  align-items: stretch;
+}
+#view .Dashboard .section-content > div,
+.Dashboard .section-content > div{
+  width: auto !important;      /* 让网格决定宽度 */
+  max-width: none !important;  /* 移除上限干扰 */
+  min-width: 0 !important;     /* 防止内部元素撑宽 */
+}
+/* 窄屏回落单列，避免拥挤/溢出 */
+@media (max-width: 980px){
+  #view .Dashboard .section-content,
+  .Dashboard .section-content{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* CASCADE v3.8.B4.50 – 彻底移除 IPv4/IPv6 块顶距（横排对齐，竖排由 gap 控）
+   - 不依赖 :nth-child(2)，直接覆盖所有直系子块
+   - 解决部分老规则 padding-top:15px 导致 IPv6 下沉 */
+#view .Dashboard .section-content .internet-status-info .settings-info > div,
+.Dashboard .section-content .internet-status-info .settings-info > div,
+#view .Dashboard .internet-status-self .settings-info > div,
+.Dashboard .internet-status-self .settings-info > div,
+.internet-status-self .settings-info > div{
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+/* 确保单列时有垂直间距（若上层已设 gap 则不冲突）*/
+@media (max-width: 1200px){
+  #view .Dashboard .section-content .internet-status-info .settings-info,
+  .Dashboard .section-content .internet-status-info .settings-info{
+    row-gap: 15px !important;
+  }
+}
+
+/* CASCADE v3.8.B4.51 – 统一四卡随浏览器宽度同步变化：根网格 + 扁平化中间容器
+   - 在 #view .Dashboard 上建立“最多两列”的根网格
+   - 将中间包裹容器改为 display: contents，使所有 .box-s1 成为同一网格的项目
+   - 保持间距统一，避免单个卡片先变窄导致观感不一致 */
+#view .Dashboard{
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch !important;
+}
+@media (max-width: 980px){
+  #view .Dashboard{ grid-template-columns: 1fr !important; }
+}
+/* 扁平化（flatten）中间容器：让 .box-s1 直接参与根网格布局 */
+#view .Dashboard > .section-content,
+#view .Dashboard .section-content,
+#view .Dashboard .main-right,
+#view .Dashboard .cbi-section,
+#view .Dashboard .cbi-section-1{
+  display: contents !important;
+}
+/* 确保卡片自身在网格中可收缩且统一等宽 */
+#view .Dashboard .box-s1{
+  max-width: none !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+/* 某些内部表格最小宽度较大，保持卡片等宽的同时允许内部滚动 */
+#view .Dashboard .devices-list{ overflow-x: auto !important; }
+/* CASCADE v3.8.B4.52 – 统一卡片宽度：移除第二项左外边距造成的单卡变窄
+   说明：旧规则 .Dashboard .section-content > div:nth-child(2){ margin-left:20px; }
+         会使第二张卡（通常是“互联网”卡）在两列网格下计算宽度时比其他卡片窄。
+         此处在 Dashboard 视图内强制清零，统一依赖 grid gap 控制间距。 */
+#view .Dashboard .section-content > div:nth-child(2){
+  margin-left: 0 !important;
+}
+/* 确保所有卡片外边距为 0，仅用根网格 gap 控制间距 */
+#view .Dashboard .box-s1{
+  margin: 0 !important;
+}
+/* CASCADE v3.8.B4.53 – 取消互联网卡片内部 980px 断点（保持纯自适应）
+   说明：覆盖先前在 @media (min-width: 980px) 中对 .internet-status-self .settings-info 的强制两列，
+         统一改为 auto-fit + minmax 按可用宽度自适应，两列/单列由宽度自然决定，无固定断点。 */
+#view .Dashboard .internet-status-self .settings-info,
+.internet-status-self .settings-info{
+  grid-template-columns: repeat(auto-fit, minmax(var(--internet-col-min, 260px), 1fr)) !important;
+}
+/* CASCADE v3.8.B4.54 – 取消 <=1600px 断点影响：维持与大屏一致 */
+@media (max-width: 1600px){
+  /* 扁平化中间容器，防止其在 <=1600 时改写为单列或改变对齐 */
+  #view .Dashboard .section-content,
+  #view .Dashboard .dashboard-bg .section-content,
+  #view .Dashboard .main-right .section-content{
+    display: contents !important;
+    grid-template-columns: unset !important;
+    grid-auto-rows: unset !important;
+    justify-items: unset !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    gap: unset !important; /* 间距由根网格 gap 控制 */
+  }
+  /* 卡片在 <=1600 与 >1600 一致：不居中、不限 900、无额外外边距 */
+  #view .Dashboard .box-s1{
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    justify-self: stretch !important;
+  }
+  /* 确保根网格仍保持两列（全局一致，不受旧规则影响） */
+  #view .Dashboard{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+/* CASCADE v3.8.B4.54a – 恢复全局 <=980px 单列（避免 B4.54 影响小屏体验） */
+@media (max-width: 980px){
+  #view .Dashboard{ grid-template-columns: 1fr !important; }
 }

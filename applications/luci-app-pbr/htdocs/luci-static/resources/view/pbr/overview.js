@@ -13,27 +13,24 @@ var pkg = pbr.pkg;
 return view.extend({
 	load: function () {
 		return Promise.all([
-			L.resolveDefault(pbr.getInterfaces(pkg.Name), {}),
-			L.resolveDefault(pbr.getPlatformSupport(pkg.Name), {}),
+			L.resolveDefault(pbr.getInitStatus(pkg.Name), {}),
 			L.resolveDefault(L.uci.load(pkg.Name), {}),
 		]);
 	},
 
 	render: function (data) {
 		var status, m, s, o;
+		var statusData = (data[0] && data[0][pkg.Name]) || {};
 		var reply = {
-			interfaces: (data[0] &&
-				data[0][pkg.Name] &&
-				data[0][pkg.Name].interfaces) || ["wan"],
-			platform: (data[1] && data[1][pkg.Name]) || {
-				ipset_installed: null,
-				nft_installed: null,
-				adguardhome_installed: null,
-				dnsmasq_installed: null,
-				unbound_installed: null,
-				adguardhome_ipset_support: null,
-				dnsmasq_ipset_support: null,
-				dnsmasq_nftset_support: null,
+			interfaces: statusData.interfaces || ["wan"],
+			interface_labels: statusData.interface_labels || {},
+			protocols: statusData.protocols || [],
+			platform: statusData.platform || {
+				nft_installed: false,
+				adguardhome_installed: false,
+				dnsmasq_installed: false,
+				unbound_installed: false,
+				dnsmasq_nftset_support: false,
 			},
 		};
 
@@ -58,8 +55,6 @@ return view.extend({
 				"<br/><br/>"
 			)
 		);
-
-		s.tab("tab_webui", _("Web UI Configuration"));
 
 		o = s.taboption(
 			"tab_basic",
@@ -113,14 +108,6 @@ return view.extend({
 			text
 		);
 		o.value("none", _("Disabled"));
-		if (reply.platform.adguardhome_ipset_support) {
-			o.value("adguardhome.ipset", _("AdGuardHome ipset"));
-			o.default = "adguardhome.ipset";
-		}
-		if (reply.platform.dnsmasq_ipset_support) {
-			o.value("dnsmasq.ipset", _("Dnsmasq ipset"));
-			o.default = "dnsmasq.ipset";
-		}
 		if (reply.platform.dnsmasq_nftset_support) {
 			o.value("dnsmasq.nftset", _("Dnsmasq nft set"));
 			o.default = "dnsmasq.nftset";
@@ -189,7 +176,7 @@ return view.extend({
 		o.value("", _("No Change"));
 		reply.interfaces.forEach((element) => {
 			if (element.toLowerCase() !== "ignore") {
-				o.value(element);
+				o.value(element, reply.interface_labels[element] || element);
 			}
 		});
 		o.rmempty = true;
@@ -243,32 +230,6 @@ return view.extend({
 		o.datatype = "uinteger";
 		o.default = "30000";
 
-		o = s.taboption(
-			"tab_webui",
-			form.ListValue,
-			"webui_show_ignore_target",
-			_("Add Ignore Target"),
-			_(
-				"Adds 'ignore' to the list of interfaces for policies. See the %sREADME%s for details."
-			).format(
-				'<a href="' + pkg.URL + '#ignore-target" target="_blank">',
-				"</a>"
-			)
-		);
-		o.value("0", _("Disabled"));
-		o.value("1", _("Enabled"));
-		o.default = "0";
-		o.optional = false;
-
-		o = s.taboption(
-			"tab_webui",
-			form.DynamicList,
-			"webui_supported_protocol",
-			_("Supported Protocols"),
-			_("Display these protocols in protocol column in Web UI.")
-		);
-		o.optional = false;
-
 		s = m.section(
 			form.GridSection,
 			"policy",
@@ -318,21 +279,69 @@ return view.extend({
 		o.default = "";
 
 		o = s.option(form.ListValue, "proto", _("Protocol"));
-		var proto = L.toArray(
-			L.uci.get(pkg.Name, "config", "webui_supported_protocol")
-		);
-		if (!proto.length) {
-			proto = ["all", "tcp", "udp", "tcp udp", "icmp"];
-		}
-		proto.forEach((element) => {
-			if (element === "all") {
-				o.value("", _("all"));
-				o.default = "";
-			} else {
-				o.value(element.toLowerCase());
+		o.value("", _("all"));
+		o.default = "";
+		var popularProtos = ["tcp", "udp", "tcp udp", "icmp"];
+		var hasPopular = false;
+		popularProtos.forEach(function (p) {
+			if (p === "tcp udp") {
+				if (reply.protocols.indexOf("tcp") !== -1 && reply.protocols.indexOf("udp") !== -1) {
+					o.value(p);
+					hasPopular = true;
+				}
+			} else if (reply.protocols.indexOf(p) !== -1) {
+				o.value(p);
+				hasPopular = true;
+			}
+		});
+		var hasOther = false;
+		reply.protocols.forEach(function (p) {
+			if (popularProtos.indexOf(p) === -1) {
+				o.value(p);
+				hasOther = true;
 			}
 		});
 		o.rmempty = true;
+		if (hasPopular && hasOther) {
+			var _protoRenderWidget = o.renderWidget;
+			o.renderWidget = function () {
+				var node = _protoRenderWidget.apply(this, arguments);
+				var sel = node.querySelector ? node.querySelector("select") : null;
+				if (!sel && node.nodeName === "SELECT") sel = node;
+				if (sel) {
+					var lastOpt = null;
+					sel.querySelectorAll("option").forEach(function (opt) {
+						if (popularProtos.indexOf(opt.value) !== -1)
+							lastOpt = opt;
+					});
+					if (lastOpt && lastOpt.nextElementSibling) {
+						sel.insertBefore(
+							E("option", { "disabled": "", "style": "text-align:center" },
+								"── " + _("All Protocols") + " ──"),
+							lastOpt.nextSibling
+						);
+					}
+				}
+				var ul = node.querySelector ? node.querySelector("ul") : null;
+				if (ul) {
+					var lastLi = null;
+					ul.querySelectorAll("li[data-value]").forEach(function (li) {
+						if (popularProtos.indexOf(li.getAttribute("data-value")) !== -1)
+							lastLi = li;
+					});
+					if (lastLi && lastLi.nextElementSibling) {
+						lastLi.parentNode.insertBefore(
+							E("li", {
+								"unselectable": "",
+								"style": "text-align:center;opacity:0.6;font-size:90%"
+							}, "── " + _("All Protocols") + " ──"),
+							lastLi.nextSibling
+						);
+					}
+				}
+				return node;
+			};
+		}
 
 		o = s.option(form.ListValue, "chain", _("Chain"));
 		o.value("", "prerouting");
@@ -343,7 +352,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, "interface", _("Interface"));
 		reply.interfaces.forEach((element) => {
-			o.value(element);
+			o.value(element, reply.interface_labels[element] || element);
 		});
 		o.datatype = "network";
 		o.rmempty = false;
@@ -384,7 +393,7 @@ return view.extend({
 		o.rmempty = false;
 		o.datatype = "list(or(cidr,host,network,ipaddr))";
 		reply.interfaces.forEach((element) => {
-			element === "ignore" || o.value(element);
+			element === "ignore" || o.value(element, reply.interface_labels[element] || element);
 		});
 
 		o = s.option(form.Value, "dest_dns_port", _("Remote DNS Port"));

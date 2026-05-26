@@ -2,10 +2,31 @@
 	"allow-full-uci-access": {
 		"description": "Allow full UCI access for legacy applications",
 		"read": {
-			"uci": [ "*" ]
+			"uci": [ "*" ],
+			"ubus": {
+				"luci": [ "getCPUInfo", "getTempInfo", "getBuiltinEthernetPorts" ]
+			},
+			"file": {
+				"/etc/user_defined_ports.json": [ "read" ],
+				"/etc/user_defined_ports.json.bak": [ "read" ]
+			}
 		},
 		"write": {
-			"uci": [ "*" ]
+			"uci": [ "*" ],
+			"cgi-io": [ "exec" ],
+			"ubus": {
+				"file": [ "exec" ],
+				"luci": [ "getCPUInfo", "getTempInfo", "getBuiltinEthernetPorts" ]
+			},
+			"file": {
+				"/etc/user_defined_ports.json": [ "write" ],
+				"/etc/user_defined_ports.json.bak": [ "write" ]
+			},
+			"exec": {
+				"/bin/chmod": [ "*" ],
+				"/bin/touch": [ "*" ],
+				"/usr/bin/stat": [ "*" ]
+			}
 		}
 	}
 }

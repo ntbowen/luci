@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-22 19:35+0000\n"
+"PO-Revision-Date: 2026-06-07 18:23+0000\n"
 "Last-Translator: Hyeonjeong Lee <h9101654@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/openwrt/"
 "luciapplicationsadblock-fast/ko/>\n"
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17.1-dev\n"
+"X-Generator: Weblate 2026.6\n"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:116
 msgid "%s is currently disabled"
@@ -35,12 +35,12 @@ msgstr "활성"
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:354
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:420
 msgid "Ad-blocking on all instances"
-msgstr ""
+msgstr "모든 인스턴스에서 광고 차단"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:355
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:421
 msgid "Ad-blocking on select instances"
-msgstr ""
+msgstr "선택한 인스턴스에서 광고 차단"
 
 #: applications/luci-app-adblock-fast/root/usr/share/luci/menu.d/luci-app-adblock-fast.json:3
 msgid "AdBlock Fast"
@@ -73,7 +73,7 @@ msgstr "IPv6 항목 추가"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:676
 msgid "Add IPv6 entries to block-list."
-msgstr ""
+msgstr "IPv6 항목을 차단 목록에 추가합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:216
 msgid "Advanced Configuration"
@@ -91,7 +91,7 @@ msgstr "허용된 도메인"
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:752
 msgid ""
 "Attempt to create a compressed cache of block-list in the persistent memory."
-msgstr ""
+msgstr "블록 목록의 압축 캐시를 영구 메모리에 생성하려고 시도합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:664
 msgid "Automatic Config Update"
@@ -117,7 +117,7 @@ msgstr "차단된 도메인"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:480
 msgid "Blocking %s domains (with %s)."
-msgstr ""
+msgstr "%s 도메인을 (%s를 사용하여) 차단합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/status/include/70_adblock-fast.js:43
 msgid "Cache"
@@ -129,11 +129,11 @@ msgstr "캐시 파일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:497
 msgid "Cache file found."
-msgstr ""
+msgstr "캐시 파일을 찾았습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:96
 msgid "Can't detect free RAM"
-msgstr ""
+msgstr "사용 가능한 RAM을 감지할 수 없음"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/status/include/70_adblock-fast.js:25
 msgid "Compressed cache"
@@ -141,41 +141,45 @@ msgstr "압축된 캐시"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:485
 msgid "Compressed cache file created."
-msgstr ""
+msgstr "압축된 캐시 파일이 생성되었습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:499
 msgid "Compressed cache file found."
-msgstr ""
+msgstr "압축된 캐시 파일을 찾았습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:113
 msgid "Config (%s) validation failure!"
-msgstr ""
+msgstr "구성 (%s) 유효성 검사 실패하였습니다!"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:489
 msgid "Controls system log and console output verbosity."
-msgstr ""
+msgstr "시스템 로그 및 콘솔 출력의 상세 수준을 제어합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:108
 msgid ""
 "Cron daemon is not available. If BusyBox crond is present, enable it with: "
 "%s; otherwise install another cron daemon."
 msgstr ""
+"cron 데몬을 사용할 수 없습니다. BusyBox crond가 설치되어 있는 경우, 다음 "
+"명령으로 활성화하세요: %s; 그렇지 않으면 다른 cron 데몬을 설치하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:105
 msgid "Cron service is not enabled or running. Enable it with: %s."
 msgstr ""
+"Cron 서비스가 활성화되어 있지 않거나 실행 중이 아닙니다. 다음 명령으로 "
+"활성화하세요: %s."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:725
 msgid "Curl download retry"
-msgstr ""
+msgstr "Curl 다운로드 재시도"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:712
 msgid "Curl maximum file size (in bytes)"
-msgstr ""
+msgstr "Curl의 최대 파일 크기 (바이트)"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:218
 msgid "DNS Query Log"
-msgstr ""
+msgstr "DNS 쿼리 로그"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:299
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/status/include/70_adblock-fast.js:41
@@ -184,15 +188,15 @@ msgstr "DNS 서비스"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:221
 msgid "DNS resolution option, see the %sREADME%s for details."
-msgstr ""
+msgstr "DNS resolution 옵션에 대한 자세한 내용은 %sREADME%s를 참조하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:535
 msgid "Daily"
-msgstr ""
+msgstr "일일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:606
 msgid "Day of Month"
-msgstr ""
+msgstr "월일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:585
 msgid "Day of Week"
@@ -200,12 +204,12 @@ msgstr "요일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:763
 msgid "Directory for compressed cache file"
-msgstr ""
+msgstr "압축 캐시 파일의 디렉터리"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:765
 msgid ""
 "Directory for compressed cache file of block-list in the persistent memory."
-msgstr ""
+msgstr "영구 메모리에 저장된 블록 목록의 압축 캐시 파일 디렉터리입니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:742
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:520
@@ -250,7 +254,7 @@ msgstr "동시 처리 사용 안 함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:690
 msgid "Download time-out (in seconds)"
-msgstr ""
+msgstr "다운로드 시간 초과 (초)"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:72
 msgid "Downloading lists"
@@ -279,10 +283,12 @@ msgid ""
 "Enable RFC 1123 compliant domain validation for dnsmasq block-lists to "
 "remove invalid entries."
 msgstr ""
+"dnsmasq 차단 목록에서 유효하지 않은 항목을 제거하려면 RFC 1123을 준수하는 "
+"도메인 유효성 검사를 활성화하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:791
 msgid "Enable dnsmasq domain validation"
-msgstr ""
+msgstr "dnsmasq 도메인 유효성 검사 활성화"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:778
 msgid "Enable dnsmasq sanity check"
@@ -292,11 +298,11 @@ msgstr "Dnsmasq 정상성 검사 활성화"
 msgid ""
 "Enable sanity check for dnsmasq block-list processing to detect and report "
 "issues."
-msgstr ""
+msgstr "dnsmasq 차단 목록 처리의 무결성 검사를 활성화하여 문제를 감지하고 보고하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:518
 msgid "Enable scheduled list redownloads via /etc/init.d/adblock-fast dl."
-msgstr ""
+msgstr "/etc/init.d/adblock-fast dl을 통해 예약된 목록 재다운로드를 활성화하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:860
 msgid "Enabled"
@@ -304,7 +310,7 @@ msgstr "활성화"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:805
 msgid "Enables debug output to /tmp/adblock-fast.log."
-msgstr ""
+msgstr "/tmp/adblock-fast.log에 디버그 출력을 활성화합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:717
 msgid "Enabling %s service"
@@ -317,16 +323,16 @@ msgstr "오류가 발생했습니다. %sREADME%s를 확인하세요"
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:538
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:551
 msgid "Every N days"
-msgstr ""
+msgstr "N일마다"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:539
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:568
 msgid "Every N hours"
-msgstr ""
+msgstr "N시간마다"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:135
 msgid "Failed to access shared memory"
-msgstr ""
+msgstr "공유 메모리 접근 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:133
 msgid "Failed to create '%s' file"
@@ -334,23 +340,23 @@ msgstr "'%s' 파일 생성 실패"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:147
 msgid "Failed to create block-list or restart DNS resolver"
-msgstr ""
+msgstr "차단 목록을 생성하거나 DNS 해석기를 재시작 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:142
 msgid "Failed to create compressed cache"
-msgstr ""
+msgstr "압축 캐시 생성 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:132
 msgid "Failed to create directory for %s file"
-msgstr ""
+msgstr "%s 파일에 대한 디렉터리 생성 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:156
 msgid "Failed to create output/cache/gzip file directory"
-msgstr ""
+msgstr "output/cache/gzip 파일 디렉터리 생성 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:158
 msgid "Failed to detect format %s"
-msgstr ""
+msgstr "%s 형식 감지 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:151
 msgid "Failed to download %s"
@@ -358,39 +364,39 @@ msgstr "%s 다운로드 실패"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:150
 msgid "Failed to download Config Update file"
-msgstr ""
+msgstr "구성 업데이트 파일 다운로드 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:139
 msgid "Failed to format data file"
-msgstr ""
+msgstr "데이터 파일 포맷 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:146
 msgid "Failed to move '%s' to '%s'"
-msgstr ""
+msgstr "'%s'를 '%s'로 이동 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:141
 msgid "Failed to move temporary data file to '%s'"
-msgstr ""
+msgstr "임시 데이터 파일 '%s'로 이동 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:137
 msgid "Failed to optimize data file"
-msgstr ""
+msgstr "데이터 파일 최적화 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:153
 msgid "Failed to parse %s"
-msgstr ""
+msgstr "%s 구문 분석 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:152
 msgid "Failed to parse Config Update file"
-msgstr ""
+msgstr "구성 업데이트 파일 구문 분석 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:138
 msgid "Failed to process allow-list"
-msgstr ""
+msgstr "허용 목록 처리 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:149
 msgid "Failed to reload/restart DNS resolver"
-msgstr ""
+msgstr "DNS 해석기 리로드/재시작 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:143
 msgid "Failed to remove temporary files"
@@ -398,11 +404,11 @@ msgstr "임시 파일 삭제 실패"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:134
 msgid "Failed to restart/reload DNS resolver"
-msgstr ""
+msgstr "DNS 해석기 재시작/리로드 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:136
 msgid "Failed to sort data file"
-msgstr ""
+msgstr "데이터 파일 정렬 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:73
 msgid "Failed to start"
@@ -414,11 +420,11 @@ msgstr "%s 중지 실패"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:144
 msgid "Failed to unpack compressed cache"
-msgstr ""
+msgstr "압축된 캐시 압축 해제 실패함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:1115
 msgid "Failed to update cron schedule."
-msgstr ""
+msgstr "cron 일정 업데이트에 실패했습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/status/include/70_adblock-fast.js:44
 msgid "Force DNS Ports"
@@ -429,9 +435,8 @@ msgid "Force DNS ports:"
 msgstr "강제 DNS 포트:"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:71
-#, fuzzy
 msgid "Force Reloading"
-msgstr "강제 새로고침 중"
+msgstr "강제 새로 고침 중"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:477
 msgid "Force Router DNS"
@@ -443,15 +448,17 @@ msgstr "모든 로컬 기기에 라우터 DNS 서버 강제 적용"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:628
 msgid "Force redownloading %s block lists"
-msgstr ""
+msgstr "%s개의 차단 목록 강제로 다시 다운로드함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:478
 msgid "Forces Router DNS use on local devices, also known as DNS Hijacking."
 msgstr ""
+"라우터의 DNS를 로컬 장치에 강제로 사용하게 하는 행위로, DNS 하이재킹이라고도 "
+"합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:161
 msgid "Free ram (%s) is not enough to process all enabled block-lists"
-msgstr ""
+msgstr "사용 가능한 RAM (%s)이 활성화된 모든 차단 목록을 처리하기에 충분하지 않음"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:593
 msgid "Friday"
@@ -467,11 +474,11 @@ msgstr "luci-app-adblock-fast의 UCI 및 파일 접근 권한 부여"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:168
 msgid "Heartbeat domain is not accessible after resolver restart"
-msgstr ""
+msgstr "해석기를 재시작한 후 하트비트 도메인에 접근할 수 없음"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:624
 msgid "Hour of day to run the update (0-23)."
-msgstr ""
+msgstr "업데이트를 실행할 시간(0-23시)입니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:675
 msgid "IPv6 Support"
@@ -481,21 +488,23 @@ msgstr "IPv6 지원"
 msgid ""
 "If curl is installed and detected, it would not download files bigger than "
 "this."
-msgstr ""
+msgstr "curl이 설치되어 있고 감지되면 이보다 큰 파일은 다운로드하지 않습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:727
 msgid ""
 "If curl is installed and detected, it would retry download this many times "
 "on timeout/fail."
 msgstr ""
+"curl이 설치되어 있고 감지되면 시간 초과/실패 시 다운로드를 여러 번 "
+"재시도합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:947
 msgid "Individual domains to be allowed."
-msgstr ""
+msgstr "허용될 개별 도메인입니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:955
 msgid "Individual domains to be blocked."
-msgstr ""
+msgstr "차단할 개별 도메인입니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:81
 msgid ""
@@ -503,20 +512,23 @@ msgid ""
 "may need to update packages or reboot the device, please check the "
 "%sREADME%s."
 msgstr ""
+"내부 버전 불일치 (패키지: %s, luci 앱: %s, luci rpcd: %s)가 발생했습니다. "
+"패키지를 업데이트하거나 기기를 재부팅해야 할 수 있습니다. %sREADME%s를 "
+"확인하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:94
 msgid "Invalid compressed cache directory '%s'"
-msgstr ""
+msgstr "잘못된 압축 캐시 디렉터리 '%s'"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:501
 msgid "LED to indicate status"
-msgstr ""
+msgstr "상태 표시 LED"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:739
 msgid ""
 "Launch all lists downloads and processing simultaneously, reducing service "
 "start time."
-msgstr ""
+msgstr "모든 목록 다운로드 및 처리를 동시에 시작하여 서비스 시작 시간을 단축합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:480
 msgid "Let local devices use their own DNS servers if set"
@@ -524,17 +536,19 @@ msgstr "로컬 기기에서 자체 DNS 서버 설정 시 우선 사용"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:217
 msgid "List Updates Schedule"
-msgstr ""
+msgstr "목록 업데이트 일정"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:646
 msgid ""
 "Minute of hour to run the update (0-59). In 'Every N hours' mode, updates "
 "run at the selected minute within each interval."
 msgstr ""
+"업데이트를 실행할 분(0~59)을 지정합니다. 'N시간마다' 모드에서는 각 간격 "
+"내에서 선택한 분에 업데이트가 실행됩니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:86
 msgid "Missing recommended package: '%s'"
-msgstr ""
+msgstr "다음 권장 패키지가 누락되었습니다: '%s'"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:589
 msgid "Monday"
@@ -542,7 +556,7 @@ msgstr "월요일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:537
 msgid "Monthly"
-msgstr ""
+msgstr "월간"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:1005
 msgid "Name"
@@ -554,23 +568,23 @@ msgstr "이름/URL"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:1035
 msgid "No %s query log entries found."
-msgstr ""
+msgstr "%s 쿼리 로그 항목을 찾을 수 없습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:422
 msgid "No Ad-blocking on SmartDNS"
-msgstr ""
+msgstr "SmartDNS에서 광고 차단 안 함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:356
 msgid "No Ad-blocking on dnsmasq"
-msgstr ""
+msgstr "dnsmasq에서 광고 차단 안 함"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:154
 msgid "No HTTPS/SSL support on device"
-msgstr ""
+msgstr "장치에서 HTTPS/SSL을 지원하지 않음"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:159
 msgid "No blocked list URLs nor blocked-domains enabled"
-msgstr ""
+msgstr "차단된 목록 URL 또는 차단된 도메인이 활성화되지 않음"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:467
 msgid "Not installed or not found"
@@ -591,15 +605,15 @@ msgstr "일시 정지"
 msgid ""
 "Pause ad-blocking for the specified number of seconds when the Pause button "
 "is pressed."
-msgstr ""
+msgstr "일시 정지 버튼을 누르면 지정된 시간 동안 광고 차단이 일시 중지됩니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:700
 msgid "Pause time-out (in seconds)"
-msgstr ""
+msgstr "일시 정지 시간 초과(초)"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:665
 msgid "Perform config update before downloading the block/allow-lists."
-msgstr ""
+msgstr "차단/허용 목록을 다운로드하기 전에 구성 업데이트를 수행하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:503
 msgid "Pick the LED not already used in %sSystem LED Configuration%s."
@@ -607,11 +621,11 @@ msgstr "%s시스템 LED 구성%s에서 사용하지 않은 LED를 선택하세�
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:452
 msgid "Pick the SmartDNS instance(s) for ad-blocking"
-msgstr ""
+msgstr "광고 차단을 위해 SmartDNS 인스턴스 선택"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:387
 msgid "Pick the dnsmasq instance(s) for ad-blocking"
-msgstr ""
+msgstr "광고 차단을 위해 dnsmasq 인스턴스 선택"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:512
 msgid "Please %sdonate%s to support development of this project."
@@ -632,15 +646,15 @@ msgstr "참고: %s은(는) 이 시스템에서 지원하지 않습니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:69
 msgid "Processing lists"
-msgstr ""
+msgstr "처리 목록"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:911
 msgid "Query logging for %s:"
-msgstr ""
+msgstr "%s에 대한 쿼리 로깅:"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:634
 msgid "Redownload"
-msgstr ""
+msgstr "다시 다운로드"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:815
 msgid "Remote Access Token"
@@ -651,6 +665,8 @@ msgid ""
 "Removed %s invalid domain entries from block-list (domains starting with -/./"
 "numbers or containing invalid patterns)"
 msgstr ""
+"차단 목록에서 유효하지 않은 도메인 항목 %s개 제거 (-/./숫자로 시작하거나 "
+"유효하지 않은 패턴을 포함하는 도메인)"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:70
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:677
@@ -659,7 +675,7 @@ msgstr "재시작 중"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:607
 msgid "Run on the selected day of month."
-msgstr ""
+msgstr "선택한 날짜에 실행됩니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:586
 msgid "Run on the selected weekday."
@@ -667,19 +683,19 @@ msgstr "선택한 요일에 자동 업데이트를 수행합니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:552
 msgid "Run once every N days."
-msgstr ""
+msgstr "N일에 한 번씩 실행됩니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:569
 msgid "Run once every N hours."
-msgstr ""
+msgstr "N시간마다 한 번씩 실행됩니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:97
 msgid "Sanity check discovered TLDs in %s"
-msgstr ""
+msgstr "정상성 검사 결과 %s에서 TLD 발견"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:99
 msgid "Sanity check discovered leading dots in %s"
-msgstr ""
+msgstr "정상성 검사 결과 %s에 선행 점 발견"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:594
 msgid "Saturday"
@@ -687,11 +703,11 @@ msgstr "토요일"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:532
 msgid "Schedule Type"
-msgstr ""
+msgstr "일정 유형"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:534
 msgid "Select how often the update should run."
-msgstr ""
+msgstr "업데이트 실행 빈도를 선택하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:782
 msgid "Service Control"
@@ -699,7 +715,7 @@ msgstr "서비스 제어"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:506
 msgid "Service Details"
-msgstr ""
+msgstr "서비스 상세 정보"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:567
 msgid "Service Errors"
@@ -718,10 +734,12 @@ msgid ""
 "Service is disabled. Please enable the service using the Service Control "
 "button above to configure service options."
 msgstr ""
+"서비스가 비활성화되었습니다. 서비스 옵션을 구성하려면 위의 '서비스 제어' "
+"버튼을 사용하여 서비스를 활성화하세요."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:927
 msgid "Showing syslog entries for %s. Log refreshes automatically."
-msgstr ""
+msgstr "%s에 대한 syslog 항목을 표시합니다. 로그는 자동으로 새로 고쳐집니다."
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:737
 msgid "Simultaneous processing"
@@ -737,7 +755,7 @@ msgstr "크기: %s"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/view/adblock-fast/overview.js:492
 msgid "Some output"
-msgstr ""
+msgstr "일부 출력"
 
 #: applications/luci-app-adblock-fast/htdocs/luci-static/resources/adblock-fast/status.js:615
 msgid "Start"

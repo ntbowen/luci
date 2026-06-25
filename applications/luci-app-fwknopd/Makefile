@@ -10,7 +10,6 @@ LUCI_TITLE:=Fwknopd config - web config for the firewall knock daemon
 LUCI_DEPENDS:=+luci-base +fwknopd +qrencode
 PKG_LICENSE:=GPL-2.0
 PKG_MAINTAINER:=Jonathan Bennett <JBennett@incomsystems.biz>
-PKG_FLAGS:=broken
 
 include ../../luci.mk
 

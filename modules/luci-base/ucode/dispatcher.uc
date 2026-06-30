@@ -111,6 +111,8 @@ function determine_request_language() {
 	if (load_catalog(lang, '/usr/lib/lua/luci/i18n'))
 		change_catalog(lang);
 
+	if (uci.get('luci', 'main', 'lang') == 'auto')
+		system('uci -P /var/state set luci.main.effective_lang=' + replace(lang, '-', '_'));
 	return lang;
 }
 

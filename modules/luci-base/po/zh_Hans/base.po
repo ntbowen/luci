@@ -15956,3 +15956,114 @@ msgstr "组播代理"
 
 msgid "DAWN"
 msgstr "分布式无线"
+
+msgid "Devices Connected"
+msgstr "已连接设备"
+
+msgid "DHCP Devices"
+msgstr "DHCP 设备"
+
+msgid "DNSv4"
+msgstr "IPv4 DNS"
+
+msgid "DNSv6"
+msgstr "IPv6 DNS"
+
+msgid "Down."
+msgstr "下行"
+
+msgid "GatewayV4"
+msgstr "IPv4 网关"
+
+msgid "GatewayV6"
+msgstr "IPv6 网关"
+
+msgid "Internet"
+msgstr "互联网"
+
+msgid "IPv4 Internet"
+msgstr "IPv4 互联网"
+
+msgid "IPv6 Internet"
+msgstr "IPv6 互联网"
+
+msgid "Mac"
+msgstr "MAC 地址"
+
+msgid "Signal Strength"
+msgstr "信号强度"
+
+msgid "Strength"
+msgstr "强度"
+
+msgid "Transferred"
+msgstr "传输流量"
+
+msgid "Up."
+msgstr "上行"
+
+msgid "Dashboard"
+msgstr "仪表盘"
+
+msgid "Adblock"
+msgstr "广告拦截"
+
+msgid "Admin Password"
+msgstr "管理员密码"
+
+msgid "App Store"
+msgstr "应用商店"
+
+msgid "Clients"
+msgstr "客户端"
+
+msgid "Connection"
+msgstr "连接"
+
+msgid "Containers"
+msgstr "容器"
+
+msgid "Custom DNS"
+msgstr "自定义 DNS"
+
+msgid "Custom WireGuard"
+msgstr "自定义 WireGuard"
+
+msgid "IDS"
+msgstr "入侵检测"
+
+msgid "IP Ban"
+msgstr "IP 封禁"
+
+msgid "Mesh"
+msgstr "网状网络"
+
+msgid "My Apps"
+msgstr "我的应用"
+
+msgid "Networks"
+msgstr "网络"
+
+msgid "Software"
+msgstr "软件包"
+
+msgid "System Info"
+msgstr "系统信息"
+
+msgid "TorGuard OpenVPN"
+msgstr "TorGuard OpenVPN"
+
+msgid "TorGuard V2Ray"
+msgstr "TorGuard V2Ray"
+
+msgid "TorGuard WireGuard"
+msgstr "TorGuard WireGuard"
+
+msgid "Tunnel Status"
+msgstr "隧道状态"
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Wi-Fi"
+msgstr "Wi-Fi"

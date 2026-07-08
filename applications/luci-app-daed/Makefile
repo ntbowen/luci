@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI app for dae dashboard
-LUCI_DEPENDS:=+daed v2ray-geoip +v2ray-geosite
+LUCI_DEPENDS:=+daed +v2ray-geoip +v2ray-geosite
 LUCI_PKGARCH:=all
 
 include ../../luci.mk

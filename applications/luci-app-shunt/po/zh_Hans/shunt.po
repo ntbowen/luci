@@ -120,7 +120,7 @@ msgstr "域名"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:397
 msgid "Enable the shunt service."
-msgstr "启用 shunt 服务。"
+msgstr "启用分流器服务。"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:396
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:86
@@ -172,7 +172,7 @@ msgstr "常规设置"
 
 #: applications/luci-app-shunt/root/usr/share/rpcd/acl.d/luci-app-shunt.json:3
 msgid "Grant access to LuCI app shunt"
-msgstr "授予访问 LuCI shunt 应用的权限"
+msgstr "授予访问 LuCI 分流器应用的权限"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:142
 msgid "IP fragment"
@@ -217,7 +217,7 @@ msgstr "记录每个观察到的 DNS 应答和每个集合写入。对提交错�
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:404
 msgid "Manage rp_filter"
-msgstr "管理 rp_filter"
+msgstr "管理反向路由过滤"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:205
 msgid "Mark"
@@ -364,7 +364,7 @@ msgstr "限制为 tcp、udp 或两者。未指定协议的端口同时包含两�
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:330
 msgid "Reverse path filtering is strict"
-msgstr "反向路径过滤处于严格模式"
+msgstr "反向路由过滤处于严格模式"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:208
 msgid "Routes"
@@ -402,7 +402,7 @@ msgstr "集合报告"
 msgid ""
 "Set rp_filter to 2 on shunt's own policy interfaces, at start and when one "
 "comes up."
-msgstr "在 shunt 自己的策略接口启动及上线时，将 rp_filter 设置为 2。"
+msgstr "在分流器自己的策略接口启动及上线时，将反向路由过滤设置为 2。"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:390
 msgid "Settings"
@@ -439,7 +439,7 @@ msgid ""
 "Strict rp_filter will drop shunt's marked traffic on %s. Set rp_filter to 2 "
 "on the policy interface, enable rp_filter_manage to have shunt do it, or "
 "loosen it box-wide; see the README."
-msgstr "严格的 rp_filter 会丢弃 %s 上 shunt 的标记流量。请将策略接口的 rp_filter 设为 2，或启用 rp_filter_manage 让 shunt 处理，或在全局放宽；详情请参见 README。"
+msgstr "严格的反向路由过滤会丢弃 %s 上分流器的标记流量。请将策略接口的反向路由过滤设为 2，或启用反向路由过滤管理让分流器处理，或在全局放宽；详情请参见 README。"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:206
 msgid "Table"
@@ -533,7 +533,7 @@ msgstr "运行中，策略已应用"
 
 #: applications/luci-app-shunt/root/usr/share/luci/menu.d/luci-app-shunt.json:3
 msgid "shunt"
-msgstr "shunt"
+msgstr "分流器"
 
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:114
 msgid "stopped"
@@ -546,3 +546,22 @@ msgstr "不可用 - 缺少 ucode-mod-resolv"
 #: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:371
 msgid "wildcards are covered by the observer only"
 msgstr "通配符仅由观察器覆盖"
+
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/overview.js:221
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:105
+msgid "main"
+msgstr "主路由"
+
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:104
+msgid "block"
+msgstr "阻断"
+
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:119
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:120
+msgid "tcp"
+msgstr "tcp"
+
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:119
+#: applications/luci-app-shunt/htdocs/luci-static/resources/view/shunt/policies.js:120
+msgid "udp"
+msgstr "udp"

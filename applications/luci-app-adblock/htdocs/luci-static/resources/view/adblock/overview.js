@@ -122,12 +122,15 @@ function feedChips(feeds) {
 
 /*
 	system_info is "cores: n, fetch: cmd, model, target, distribution version".
-	Keep the named entries and the board model, drop target and release.
+	Keep the named entries and the board model, drop target and release. The
+	model is the only unnamed entry, it gets the 'system' key for display.
 */
 function sysPairs(text) {
 	let plain = 0;
 	return parsePairs(text).filter(function (pair) {
 		return pair[0] || ++plain === 1;
+	}).map(function (pair) {
+		return pair[0] ? pair : ['system', pair[1]];
 	});
 }
 
@@ -174,7 +177,7 @@ return view.extend({
 		*/
 		let m, s, o;
 		m = new form.Map('adblock', 'Adblock', _('Configuration of the adblock package to block ad/abuse domains by using DNS. \
-			For further information please check the %s.'.format(`<a style="color:#37c;font-weight:bold;" href="https://github.com/openwrt/packages/blob/master/net/adblock/files/README.md" target="_blank" rel="noreferrer noopener" >${_('online documentation')}</a>`)));
+			For further information please check the %s.'.format(`<a style="color:#37c;font-weight:bold;" href="https://github.com/openwrt/packages/blob/master/net/adblock/README.md" target="_blank" rel="noreferrer noopener" >${_('online documentation')}</a>`)));
 
 		/*
 			set text content helper function
